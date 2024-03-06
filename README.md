@@ -1,8 +1,8 @@
 Members:
-Jeremy Troff
-Sunseehray Tirazona
-Moises Parra Lozano
-Lourenco Da Silva
+Jeremy Troff,
+Sunseehray Tirazona,
+Moises Parra Lozano,
+Lourenco Da Silva,
 Isaac Salirrosas
 
 Basic Breakdown of Project:
