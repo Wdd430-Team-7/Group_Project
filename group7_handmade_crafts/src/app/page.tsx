@@ -1,14 +1,13 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import Header from "./ui/header";
 
 export default function Home() {
   return (
     <>
-      <header className="w-full bg-amber-400">
-        <h1>Header</h1>
-      </header>
+      <Header />
       <main className={styles.main}>
-        <h2>Page Title</h2>
+        <p>Stuff</p>
       </main>
       <footer className="w-full bg-amber-400">
         <p>Footer</p>
