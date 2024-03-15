@@ -34,7 +34,7 @@ export default function Header() {
             alt="logo"
             className="hidden md:block bg-amber-400 rounded-lg hover:bg-amber-200"
           />
-          <h1 className={`${patrick_hand.className} text-2xl md:text-6xl`}>
+          <h1 className={`${patrick_hand.className} text-2xl md:text-6xl text-black`}>
             Handcrafted Haven
           </h1>
         </Link>
