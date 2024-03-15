@@ -266,3 +266,15 @@ VALUES
 ('Embossed Handmade Soap', 'Relax with this embossed handmade soap.', '/images/products/susan_embossed.jpg', 20, 5, 'aea73477-ff13-41a1-a86a-5c30859494da'),
 ('Marbled Soap', 'Yes, it is a soap.', '/images/products/susan_marbles.jpg', 30, 5, 'aea73477-ff13-41a1-a86a-5c30859494da'),
 ('Square Handmade Soap', 'Yes, it is a soap.', '/images/products/susan_squares.jpg', 15, 5, 'aea73477-ff13-41a1-a86a-5c30859494da');
+
+-- add product for leonardo
+INSERT INTO handcrafted.product (
+    product_title,
+    product_description,
+    product_image,
+    product_price,
+    category_id,
+    artist_id    
+)
+VALUES
+('The Last Supper', 'Hang it in your kitchen because, why not?', '/images/products/last_supper.jpg', 60000, 1, '538c6f54-a22a-49a3-8815-8938c2f58932');
