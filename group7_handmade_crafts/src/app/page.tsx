@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Header from "./ui/header";
 import Search from "./ui/search";
+import Reviews from "./ui/review";
 import { lato } from '@/app/ui/fonts';
 
 export default function Home() {
@@ -21,11 +22,11 @@ export default function Home() {
           {/* Lourenco */}
         </div>
         <div className="flex flex-row p-4 mb-4 justify-center gap-4">
-          <div className="bg-amber-100 p-4 flex-grow">
-            Reviews
+          <div className="bg-amber-100 p-4 flex-grow w-1/2">
+            <Reviews />
             {/* Moises */}
           </div>
-          <div className="bg-amber-100 p-4 flex-grow">
+          <div className="bg-amber-100 p-4 flex-grow w-1/2">
             Featured Artists
             {/* Moises */}
           </div>
