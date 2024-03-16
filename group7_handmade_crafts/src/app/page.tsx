@@ -1,5 +1,9 @@
+import React from 'react';
 import Image from "next/image";
 import Header from "./ui/header";
+import { lato } from '@/app/ui/fonts';
+import NewItems from "./ui/NewItems"; // Import NewItems component
+import FeaturedArtists from "./ui/FeaturedArtists"; // Import FeaturedArtists component
 
 export default function Home() {
   return (
