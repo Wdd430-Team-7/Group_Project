@@ -3,7 +3,10 @@ import Header from "./ui/header";
 import Search from "./ui/search";
 import { lato } from '@/app/ui/fonts';
 
-export default function Home() {
+
+
+export default async function Home() {
+  
   return (
     <>
       <Header />
