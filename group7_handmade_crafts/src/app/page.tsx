@@ -6,7 +6,10 @@ import NewItems from "./ui/NewItems"; // Import NewItems component
 import FeaturedArtists from "./ui/FeaturedArtists"; // Import FeaturedArtists component
 import Search from "./ui/search";
 
-export default function Home() {
+
+
+export default async function Home() {
+  
   return (
     <>
       <Header />
