@@ -5,6 +5,7 @@ import { lato } from '@/app/ui/fonts';
 import NewItems from "./ui/NewItems"; // Import NewItems component
 import FeaturedArtists from "./ui/FeaturedArtists"; // Import FeaturedArtists component
 import Search from "./ui/search";
+import Reviews from "./ui/review";
 
 
 
@@ -27,11 +28,11 @@ export default async function Home() {
           {/* Lourenco */}
         </div>
         <div className="flex flex-row p-4 mb-4 justify-center gap-4">
-          <div className="bg-amber-100 p-4 flex-grow">
-            Reviews
+          <div className="bg-amber-100 p-4 flex-grow w-1/2">
+            <Reviews />
             {/* Moises */}
           </div>
-          <div className="bg-amber-100 p-4 flex-grow">
+          <div className="bg-amber-100 p-4 flex-grow w-1/2">
             Featured Artists
             {/* Moises */}
           </div>
