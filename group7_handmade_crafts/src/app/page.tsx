@@ -23,18 +23,18 @@ export default async function Home() {
       
           <Search placeholder="Search by category/price..."/>
         </div>
-        <div className="flex flex-row p-4 mx-4 justify-center bg-amber-100">
-          New Items
+        <div className="p-4 mx-4 bg-amber-100">
           {/* Lourenco */}
+          <NewItems />
         </div>
         <div className="flex flex-row p-4 mb-4 justify-center gap-4">
           <div className="bg-amber-100 p-4 flex-grow w-1/2">
+            {/* Isaac */}
             <Reviews />
-            {/* Moises */}
           </div>
           <div className="bg-amber-100 p-4 flex-grow w-1/2">
-            Featured Artists
-            {/* Moises */}
+            {/* Lourenco */}
+            <FeaturedArtists />
           </div>
         </div>
       </main>
