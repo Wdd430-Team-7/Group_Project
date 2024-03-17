@@ -15,7 +15,7 @@ export default function Header() {
           className="flex flex-row gap-4 items-center justify-center"
         >
           <Image
-            src="./images/handcrafted_haven_logo.svg"
+            src="/images/handcrafted_haven_logo.svg"
             width={80}
             height={80}
             alt="logo"
