@@ -1,7 +1,10 @@
+import React from 'react';
 import Image from "next/image";
 import Header from "./ui/header";
-import Search from "./ui/search";
 import { lato } from '@/app/ui/fonts';
+import NewItems from "./ui/NewItems"; // Import NewItems component
+import FeaturedArtists from "./ui/FeaturedArtists"; // Import FeaturedArtists component
+import Search from "./ui/search";
 
 export default function Home() {
   return (
