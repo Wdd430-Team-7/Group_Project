@@ -48,9 +48,6 @@ export default function Header() {
         }`}
       >
         <Category onClickEvent={closeMenu} />
-        <Category onClickEvent={closeMenu} />
-        <Category onClickEvent={closeMenu} />
-        <Category onClickEvent={closeMenu} />
       </div>
     </header>
   );
