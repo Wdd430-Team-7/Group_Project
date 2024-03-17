@@ -25,7 +25,7 @@ export async function fetchCategories() {
         return data.rows;
     } catch(error) {
         console.error('Error fetching categories:', error);
-        throw new Error('Failed to fetch categories.');
+        throw new Error('Something went wrong.');
     }
 }
 

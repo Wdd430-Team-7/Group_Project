@@ -14,7 +14,7 @@ export default async function Home() {
   return (
     <>
       <Header />
-      <main className="bg-white min-h-screen flex flex-col">
+      <main className="bg-white min-h-screen flex flex-col text-black">
         
         <div className="flex-col justify-center p-4 m-4 bg-amber-100">
         <div className="flex w-full items-center justify-center">
