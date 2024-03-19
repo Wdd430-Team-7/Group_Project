@@ -475,6 +475,31 @@ VALUES (
         '538c6f54-a22a-49a3-8815-8938c2f58932'
     );
 
+-- Updated the accounts table to indicate authenticated users. account_authentication = 1 if authenticated, 0 if not authenticated
+ALTER TABLE IF EXISTS handcrafted.account
+ADD account_authenticated INT DEFAULT 0;
+
+-- Modify all current seeded users to authenticated
+UPDATE handcrafted.account
+SET
+account_authenticated = 1;
+
+-- Insert non authenticated generic user for leaving ratings and reviews
+INSERT INTO handcrafted.account (
+	account_firstname,
+	account_lastname,
+	account_email,
+	account_password,
+	account_image
+)
+VALUES (
+	'Generic',
+	'User',
+	'generic@mail.com',
+	'generic',
+	'/images/users/no_image.jpg'
+);
+
 --ALTER account table
 ALTER TABLE handcrafted.account
 ADD account_description TEXT DEFAULT 'This user cannot be bothered to add a description.';
