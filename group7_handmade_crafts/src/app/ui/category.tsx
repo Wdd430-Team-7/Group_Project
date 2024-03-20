@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { patrick_hand, inter } from "./fonts";
 import { fetchCategories } from "../lib/online-data";
 
 export default async function Category() {
