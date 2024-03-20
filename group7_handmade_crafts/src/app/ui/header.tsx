@@ -1,11 +1,15 @@
+'use client';
 import Image from "next/image";
 import Link from "next/link";
 import { UserCircleIcon } from "@heroicons/react/24/outline";
 import SignIn from "./sign-in"
 import { patrick_hand } from "./fonts";
 import Category from "./category";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname();
+
   return (
     <header className="flex flex-col relative">
       <div className="flex flex-row p-4 items-center justify-between bg-amber-400 md:bg-white md:items-center">
@@ -31,7 +35,7 @@ export default function Header() {
       <div
         className={`flex flex-row flex-wrap justify-center bg-amber-400 md:bg-white gap-2 p-4`}
       >
-        <Category />
+        <Category pathname={pathname}/>
       </div>
     </header>
   );

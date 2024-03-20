@@ -21,7 +21,7 @@ export async function fetchAccountById(id: string) {
 
 export async function fetchCategories() {
     try {
-        const data = await sql<Category>`SELECT * FROM handcrafted.category`;
+        const data = await sql`SELECT * FROM handcrafted.category`;
         return data.rows;
     } catch(error) {
         console.error('Error fetching categories:', error);
