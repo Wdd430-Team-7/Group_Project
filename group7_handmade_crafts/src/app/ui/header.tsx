@@ -6,7 +6,6 @@ import { patrick_hand } from "./fonts";
 import Category from "./category";
 
 export default function Header() {
-
   return (
     <header className="flex flex-col relative">
       <div className="flex flex-row p-4 items-center justify-between bg-amber-400 md:bg-white md:items-center">
