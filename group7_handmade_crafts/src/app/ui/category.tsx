@@ -1,11 +1,9 @@
 import Link from "next/link";
 import { fetchCategories } from "../lib/online-data";
+import clsx from "clsx";
 
 export default async function Category({ pathname } : { pathname: string}) {
   const categories = await fetchCategories();
-  const isActive = (href: string) => {
-    return pathname === href;
-  };
 
   return (
     <>
@@ -16,12 +14,12 @@ export default async function Category({ pathname } : { pathname: string}) {
           <Link
             key={category.category_id}
             href={href}
-            className={`bg-white px-4 py-2 rounded-md ${
-              isActive(href)
-                ? "bg-green-200 text-black"
-                : "hover:bg-blue-200 text-black"
-            }`}
-          >
+            className={clsx(
+              "bg-white px-4 py-2 rounded-md hover:bg-amber-200",
+              {
+                "bg-amber-200 text-black" : pathname === href,
+              },
+            )}>
             <p className="md:hidden text-2xl">{LinkIcon}</p>
             <p className="hidden md:block">{category.category_name}</p>
           </Link>
