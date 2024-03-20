@@ -57,12 +57,21 @@ export async function fetchProductById(id: string) {
     }
 }
 
-export async function fetchProductByCategory(category_id: number) {
+export async function fetchProductsByCategory(category_id: number) {
     try {
-        const data = await sql<Product>`SELECT * FROM handcrafted.product WHERE category_id = ${category_id}`;
+        const data = await sql`SELECT * FROM handcrafted.product WHERE category_id = ${category_id}`;
         return data.rows;
     } catch(error) {
         throw new Error('Failed to fetch products by category.');
+    }
+}
+
+export async function fetchCategoryName(category_id: number) {
+    try {
+        const data = await sql`SELECT category_name FROM handcrafted.category WHERE category_id = ${category_id}`;
+        return data.rows[0];
+    } catch(error) {
+        throw new Error('Failed to fetch category name: ' + error);
     }
 }
 
