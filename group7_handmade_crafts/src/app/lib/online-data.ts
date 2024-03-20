@@ -66,6 +66,27 @@ export async function fetchProductByCategory(category_id: number) {
     }
 }
 
+export async function fetchNewProducts(limit: number) {
+    try {
+        const data = await sql`SELECT 
+                                    p.product_id, 
+                                    p.product_title, 
+                                    p.product_description, 
+                                    p.product_image, 
+                                    p.product_price,
+                                    a.account_firstname,
+                                    a.account_lastname,
+                                    a.account_id
+                                FROM handcrafted.product p
+                                INNER JOIN handcrafted.account a
+                                ON a.account_id = p.artist_id
+                                ORDER BY product_date_created DESC LIMIT ${limit}`;
+        return data.rows;
+    } catch(error) {
+        throw new Error('Failed to fetch new products.');
+    }
+}
+
 export async function fetchTopRatings(limit: number) {
     try {
         // returns highest ratings up to limit
@@ -83,5 +104,15 @@ export async function fetchRatingsByProduct(product_id: string) {
         return data.rows;
     } catch(error) {
         throw new Error('Failed to fetch product ratings.');
+    }
+}
+
+export async function fetchFeaturedArtistsLimited(limit: number) {
+    try {
+        // returns artist_id, artist_firstname, artist_lastname
+        const data = await sql<Account>`SELECT * FROM handcrafted.account WHERE account_authenticated = 1 ORDER BY account_id ASC LIMIT ${limit}`;
+        return data.rows;
+    } catch(error) {
+        throw new Error('Failed to fetch featured artists.');
     }
 }

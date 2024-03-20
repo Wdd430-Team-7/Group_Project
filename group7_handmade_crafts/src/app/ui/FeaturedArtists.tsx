@@ -1,6 +1,7 @@
 // FeaturedArtists.tsx
 import Image from "next/image"; // Import next/image
 import React from "react";
+import FeaturedArtistCard from "./featured-artist-card";
 
 const FeaturedArtists: React.FC = () => {
   return (
@@ -28,6 +29,7 @@ const FeaturedArtists: React.FC = () => {
           <p>Brief description or bio of Artist 2</p>
         </div>
         {/* Add more featured artists as needed */}
+        <FeaturedArtistCard />
       </div>
     </div>
   );

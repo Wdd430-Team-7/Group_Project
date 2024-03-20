@@ -2,6 +2,7 @@
 import Image from "next/image"; // Import next/image
 import React from "react";
 import { patrick_hand } from "./fonts";
+import NewItemCard from "./new-item-card";
 
 const NewItems: React.FC = () => {
   return (
@@ -29,6 +30,7 @@ const NewItems: React.FC = () => {
           <p>Description of New Item 2</p>
         </div>
         {/* Add more new items as needed */}
+        <NewItemCard />
       </div>
     </div>
   );
