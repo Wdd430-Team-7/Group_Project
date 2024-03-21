@@ -25,9 +25,9 @@ export default async function Rating() {
         return (
           <div key={rating_id} className="m-3 p-2 bg-white">
             <a href={product_link}>
-              <p className="font-bold hover:underline">{product_name}</p>
+              <p className="font-bold text-xl hover:underline">{product_name}</p>
             </a>
-            <div className="flex flex-row justify-between">
+            <div className="flex flex-row justify-between font-bold">
               <p>{title}</p>
               <div className="flex flex-row">
                 {/* {[...Array(solidStars)].map((star) => {
@@ -36,7 +36,7 @@ export default async function Rating() {
                 {[...Array(emptyStars)].map((star) => {
                   return <StarOutline className="w-5 h-5 text-amber-500" />;
                 })} */}
-                <p>{rating_value} stars</p>
+                <p className="w-5 h-5 text-amber-500">{rating_value} stars</p>
               </div>
             </div>
             <p className="flex flex-grow">{review}</p>
