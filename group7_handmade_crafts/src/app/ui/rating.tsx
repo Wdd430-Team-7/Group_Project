@@ -1,36 +1,49 @@
-import { StarIcon as StarOutline } from "@heroicons/react/24/outline"
-import { StarIcon as StarSolid } from "@heroicons/react/16/solid"
-import LikeButton from './like-button';
+import { StarIcon as StarOutline } from "@heroicons/react/24/outline";
+import { StarIcon as StarSolid } from "@heroicons/react/16/solid";
+import LikeButton from "./like-button";
+import { fetchRecentRatings } from "../lib/online-data";
 
-export default function Rating({
-    name,
-    title, 
-    text, 
-    rating_value}:{
-        name: string,
-        title: string,
-        text: string,
-        rating_value: number
-    }) {
-        const solidStars = rating_value
-        const emptyStars = 5 - rating_value
+export default async function Rating() {
+  const data = await fetchRecentRatings(5);
 
-    return (
-        <div className='m-3 p-2 bg-white'>
-            <p className='font-bold'>{name}</p>
-            <div className='flex flex-row justify-between'>
-               <p>{title}</p>
-                <div className="flex flex-row">
-                    {[...Array(solidStars)].map(star => {
-                        return <StarSolid className='w-5 h-5 text-amber-500'/>
-                    })}
-                    {[...Array(emptyStars)].map(star => {
-                        return <StarOutline className='w-5 h-5 text-amber-500' />
-                    })}
-                </div>
+  return (
+    <>
+      {data.map((item) => {
+        const rating_id = item.rating_id;
+        const title = item.rating_title;
+        const review = item.rating_review_text;
+        const rating_value = item.rating_value;
+        const product_id = item.product_id;
+        const artist_id = item.account_id;
+
+        const product_name = item.product_title;
+        const product_link = `/product/${product_id}`;
+
+        const artist = item.account_firstname + " " + item.account_lastname;
+        const artist_link = `/artist/${artist_id}`;
+
+        return (
+          <div key={rating_id} className="m-3 p-2 bg-white">
+            <a href={product_link}>
+              <p className="font-bold hover:underline">{product_name}</p>
+            </a>
+            <div className="flex flex-row justify-between">
+              <p>{title}</p>
+              <div className="flex flex-row">
+                {/* {[...Array(solidStars)].map((star) => {
+                  return <StarSolid className="w-5 h-5 text-amber-500" />;
+                })}
+                {[...Array(emptyStars)].map((star) => {
+                  return <StarOutline className="w-5 h-5 text-amber-500" />;
+                })} */}
+                <p>{rating_value} stars</p>
+              </div>
             </div>
-            <p className='flex flex-grow'>{text}</p>
+            <p className="flex flex-grow">{review}</p>
             <LikeButton />
-        </div>
-    )
+          </div>
+        );
+      })}
+    </>
+  );
 }

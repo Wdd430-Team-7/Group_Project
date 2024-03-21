@@ -75,13 +75,17 @@ export async function fetchProductsByCategory(category_id: number) {
     }
 }
 
-export async function fetchTopRatings(limit: number) {
+export async function fetchRecentRatings(limit: number) {
     try {
         // returns highest ratings up to limit
-        const data = await sql<Rating>`SELECT * FROM handcrafted.rating ORDER BY rating_value ASC LIMIT ${limit}`;
+        const data = await sql`SELECT r.rating_id, r.rating_title, r.rating_review_text, r.rating_value, p.product_title, p.product_id, p.product_image, a.account_firstname, a.account_lastname, a.account_id 
+        FROM handcrafted.rating r 
+        INNER JOIN handcrafted.product p ON r.product_id = p.product_id 
+        INNER JOIN handcrafted.account a ON a.account_id = p.artist_id 
+        ORDER BY r.rating_timestamp DESC LIMIT ${limit}`;
         return data.rows;
     } catch(error) {
-        throw new Error('Failed to fetch top ratings.');
+        throw new Error('Failed to fetch recent ratings.');
     }
 }
 

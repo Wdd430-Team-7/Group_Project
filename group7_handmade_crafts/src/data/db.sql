@@ -531,3 +531,7 @@ VALUES
 ('Good product', 'The product is good overall. I am satisfied with my purchase.', 4, 'bca31322-d212-46ae-894d-3a5ab9c3fb90', '5d6ccb7f-60f9-4f1a-a4b2-bfb5905359e6'),
 ('Room for improvement', 'The product is decent, but there is definitely room for improvement.', 3, 'af7d19e3-8e9d-4a5f-b776-936d3ff81519', '7a02b748-20b5-49c3-aa60-4e6a8accc212'),
 ('Exceptional quality', 'I am impressed by the quality of this product. It exceeded my expectations.', 5, '1bd11b97-f88b-4a2f-8bf1-fa79702a8425', '7a02b748-20b5-49c3-aa60-4e6a8accc212');
+
+-- Adding timestamp to rating
+ALTER TABLE handcrafted.rating
+ADD rating_timestamp TIMESTAMP NOT NULL DEFAULT '2020-01-01 00:00:00';
