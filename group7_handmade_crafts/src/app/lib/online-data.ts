@@ -29,6 +29,15 @@ export async function fetchCategories() {
     }
 }
 
+export async function fetchCategoryName(id: number) {
+    try {
+        const data = await sql`SELECT category_name FROM handcrafted.category WHERE category_id = ${id}`;
+        return data.rows[0];
+    } catch(error) {
+        throw new Error('Failed to fetch category name.');
+    }
+}
+
 export async function fetchTopFiveProducts() {
     try {
         // not a good top five fetch since it's only based on product id, but just for now
@@ -57,7 +66,7 @@ export async function fetchProductById(id: string) {
     }
 }
 
-export async function fetchProductByCategory(category_id: number) {
+export async function fetchProductsByCategory(category_id: number) {
     try {
         const data = await sql<Product>`SELECT * FROM handcrafted.product WHERE category_id = ${category_id}`;
         return data.rows;
