@@ -85,3 +85,12 @@ export async function fetchRatingsByProduct(product_id: string) {
         throw new Error('Failed to fetch product ratings.');
     }
 }
+
+export async function calculateProductRating(product_id: string) {
+    try {
+        const data = await sql`SELECT ROUND(AVG(rating_value), 1) AS average_value FROM handcrafted.rating WHERE product_id = ${product_id}`;
+        return data.rows[0];
+    } catch(error) {
+        throw new Error('Failed to calculate product rating.');
+    }
+}
