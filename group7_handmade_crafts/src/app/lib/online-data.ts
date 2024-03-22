@@ -21,7 +21,7 @@ export async function fetchAccountById(id: string) {
 
 export async function fetchCategories() {
     try {
-        const data = await sql<Category>`SELECT * FROM handcrafted.category`;
+        const data = await sql`SELECT * FROM handcrafted.category`;
         return data.rows;
     } catch(error) {
         console.error('Error fetching categories:', error);
@@ -68,14 +68,23 @@ export async function fetchProductById(id: string) {
 
 export async function fetchProductsByCategory(category_id: number) {
     try {
-        const data = await sql<Product>`SELECT * FROM handcrafted.product WHERE category_id = ${category_id}`;
+        const data = await sql`SELECT * FROM handcrafted.product WHERE category_id = ${category_id}`;
         return data.rows;
     } catch(error) {
         throw new Error('Failed to fetch products by category.');
     }
 }
 
-export async function fetchRecentRatings(limit: number) {
+export async function fetchCategoryName(category_id: number) {
+    try {
+        const data = await sql`SELECT category_name FROM handcrafted.category WHERE category_id = ${category_id}`;
+        return data.rows[0];
+    } catch(error) {
+        throw new Error('Failed to fetch category name: ' + error);
+    }
+}
+
+export async function fetchTopRatings(limit: number) {
     try {
         // returns highest ratings up to limit
         const data = await sql`SELECT r.rating_id, r.rating_title, r.rating_review_text, r.rating_value, p.product_title, p.product_id, p.product_image, a.account_firstname, a.account_lastname, a.account_id 

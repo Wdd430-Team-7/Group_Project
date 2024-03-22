@@ -27,12 +27,12 @@ export default async function Home() {
           {/* Lourenco */}
           <NewItems />
         </div>
-        <div className="flex flex-row p-4 mb-4 justify-center gap-4">
-          <div className="bg-amber-100 p-4 flex-grow w-1/2">
+        <div className="flex flex-col md:flex-row p-4 mb-4 justify-center gap-4">
+          <div className="bg-amber-100 p-4 flex-grow md:w-1/2">
             {/* Isaac */}
             <Reviews />
           </div>
-          <div className="bg-amber-100 p-4 flex-grow w-1/2">
+          <div className="bg-amber-100 p-4 flex-grow md:w-1/2">
             {/* Lourenco */}
             <FeaturedArtists />
           </div>
