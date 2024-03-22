@@ -29,7 +29,8 @@ export type Rating = {
     rating_review_text: string,
     rating_value: number,
     buyer_id: string,
-    product_id: string
+    product_id: string,
+    rating_timestamp: Date
 }
 
 export type Story = {
