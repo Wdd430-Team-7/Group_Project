@@ -1,44 +1,12 @@
 'use client';
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import clsx from "clsx";
+import { patrick_hand, inter } from "./fonts";
+import { fetchCategories } from "../lib/online-data";
 
-const categories = [
-  {
-    category_id: 1,
-    category_name: 'Artisanal',
-    category_icon: '🖼️',
-  },
-  {
-    category_id: 2,
-    category_name: 'Textile and Fabrics',
-    category_icon: '👕',
-  },
-  {
-    category_id: 3,
-    category_name: 'Jewelry and Accessories',
-    category_icon: '💎',
-  },
-  {
-    category_id: 4,
-    category_name: 'Home and Furnishings',
-    category_icon: '🏠',
-  },
-  {
-    category_id: 5,
-    category_name: 'Personal Care',
-    category_icon: '🧼',
-  },
-  {
-    category_id: 6,
-    category_name: 'Stationery and Paper Goods',
-    category_icon: '📜',
-  },
-]
-
-export default function Category() {
-  const pathname = usePathname();
+export default async function Category() {
+  const categories = await fetchCategories();
+  console.log(categories);
   return (
     <>
       {categories.map((category) => {
