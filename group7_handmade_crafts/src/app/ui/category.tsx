@@ -4,6 +4,7 @@ import { fetchCategories } from "../lib/online-data";
 
 export default async function Category() {
   const categories = await fetchCategories();
+  console.log(categories);
   return (
     <>
       {categories.map((category) => {

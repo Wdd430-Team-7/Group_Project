@@ -1,10 +1,46 @@
 import { fetchAllProducts } from "@/app/lib/online-data";
+
+import { patrick_hand, lato } from "@/app/ui/fonts";
+import Header from "../../ui/header";
+import Image from "next/image";
+
+
+
+//<div className={`${lato.className} flex justify-center text-black bg-white min-h-screen text-3xl`}>
+        
+      
 export default async function Product(){
   const products = await fetchAllProducts();
   console.log(products);
-  return <>{products.map((product) => (
-    <li>{product.product_title} </li>
-     
-  ))}</>
+  return (<>
+          <Header/>
+          
+            <div className={`${lato.className} flex flex-wrap text-black bg-white min-h-screen text-3xl place-content-center gap-4 py-10`}>
+            {products.map((product) => (
+                
+                <div className={"max-w-sm rounded overflow-hidden shadow-lg bg-amber-100"}>
+                <div className="flex justify-center pt-6 "><Image  className="content-end" src={`${product.product_image}`} alt="Sunset in the mountains" width={300} height={300}/></div>
+                <div className="px-6 py-4">
+                    
+                    <div className={"font-bold text-xl mb-2"}>{product.product_title}</div>
+                    <p className={"text-gray-700 text-base"}>
+                        {product.product_description}
+                    </p>
+                </div>
+                <div className={"px-6 pt-4 pb-2"}>
+                  <span className={"inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"}>US${product.product_price}</span>
+                  <span className={"inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"}>{product.category_id}</span>
+                  
+                </div>
+                </div>
+
+                ))}
+            </div>
+            <footer className="w-full bg-amber-400 p-4 text-center">
+              <p>Footer</p>
+            </footer>
+          
+  
+  </>)
   
 }
