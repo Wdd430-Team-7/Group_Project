@@ -474,3 +474,64 @@ VALUES (
         1,
         '538c6f54-a22a-49a3-8815-8938c2f58932'
     );
+
+--ALTER account table
+ALTER TABLE handcrafted.account
+ADD account_description TEXT DEFAULT 'This user cannot be bothered to add a description.';
+
+-- alter account table to default password to 'password'
+ALTER TABLE handcrafted.account
+ALTER COLUMN account_password SET DEFAULT 'password';
+
+-- alter account image to default no image
+ALTER TABLE handcrafted.account
+ALTER COLUMN account_image SET DEFAULT '/images/users/no-image.jpg';
+
+-- INSERT additional non-authenticated users
+INSERT INTO handcrafted.account (
+	account_firstname,
+	account_lastname,
+	account_email,
+	account_description
+)
+VALUES
+('Emily', 'Johnson', 'emilyjohnson@example.com', 'Passionate about photography and exploring new places. Always seeking beauty in the world.'),
+('Michael', 'Rodriguez', 'michael.rodriguez@example.com', 'Tech entusiast, avid gamer, and aspiring coder. Constantly learning and adapting to new technologies.'),
+('Sarah', 'Patel', 'sarah.patel@example.com', 'Fitness freak, health advocate, and nature lover. Finding balance between work and wellness.'),
+('Daniel', 'Smith', 'daniel.smith@example.com', 'Musician by heart, traveler by soul. Dreaming big and embracing the rhythm of life.'),
+('Jessica', 'Brown', 'jessica.brown@example.com', 'Foodie, bookworm, and occasional writer. Believer in the power of words and flavors to unite people.'),
+('Ryan', 'Lee', 'ryan.lee@example.com', 'Adventure seeker, adrenaline junkie, and thrill enthusiast. Life is too short for regrets.'),
+('Amanda', 'Garcia', 'amanda.garcia@example.com','Dreamer, traveler, and aspiring entrepreneur. Building castles in the air and laying foundations under them.'),
+('Christopher', 'Martinez', 'christopher.martinez@example.com', 'Movie buff, pop culture aficionado, and trivia master. Living life one frame at a time.'),
+('Lauren', 'Scott', 'lauren.scott@example.com', 'Animal lover, volunteer, and advocate for a greener planet. Making a difference, one paw print at a time.'),
+('Tyler', 'White', 'tyler.white@example.com', 'Sports enthusiast, fitness fanatic, and outdoor adventurer. Chasing goals and breaking personal records.');
+
+-- INSERT reviews and ratings
+-- IMPORTANT!!! CHANGE THE UUIDs if during account and product creation, you generated different ones.
+INSERT INTO handcrafted.rating (rating_title, rating_review_text, rating_value, buyer_id, product_id)
+VALUES
+('Great product!', 'I am very satisfied with my purchase. It exceeded my expectations.', 5, '4d9c5baa-b320-4476-b6eb-8e5ba078426c', 'efa2713a-6c72-4ad4-9c1b-25c9466397a5'),
+('Good value for money', 'The product is of good quality and the price is reasonable.', 4, 'a248cae4-037d-4572-ac46-6644cfb19037', 'efa2713a-6c72-4ad4-9c1b-25c9466397a5'),
+('Could be better', 'I expected better quality for the price I paid.', 3, '6eb8ae1f-b044-41e2-8764-d6dcb6474df0', 'efa2713a-6c72-4ad4-9c1b-25c9466397a5'),
+('Disappointed', 'The product did not meet my expectations. It arrived damaged.', 2, 'bca31322-d212-46ae-894d-3a5ab9c3fb90', '7aa9a860-af04-45aa-9103-e36bcf1a773e'),
+('Not recommended', 'I regret buying this product. It broke after a few uses.', 1, 'af7d19e3-8e9d-4a5f-b776-936d3ff81519', '7aa9a860-af04-45aa-9103-e36bcf1a773e'),
+('Satisfied', 'The product met my expectations. Good quality.', 4, '1bd11b97-f88b-4a2f-8bf1-fa79702a8425', '7aa9a860-af04-45aa-9103-e36bcf1a773e'),
+('Excellent service', 'The seller provided excellent customer service. Very responsive and helpful.', 5, '3f9e5089-91cb-4d1f-96a7-2628831bc7c1', '7a02b748-20b5-49c3-aa60-4e6a8accc212'),
+('Average product', 'The product is okay, but nothing special.', 3, 'af7d19e3-8e9d-4a5f-b776-936d3ff81519', '7a02b748-20b5-49c3-aa60-4e6a8accc212'),
+('Could be improved', 'The product has potential, but there are some flaws that need to be addressed.', 2, 'af7d19e3-8e9d-4a5f-b776-936d3ff81519', '634088e8-1364-4d89-85b3-c64d4edfdbd2'),
+('Very disappointed', 'I am extremely disappointed with the product. It broke immediately after use.', 1, '1bd11b97-f88b-4a2f-8bf1-fa79702a8425', '634088e8-1364-4d89-85b3-c64d4edfdbd2'),
+('Impressed', 'The product exceeded my expectations. It is of excellent quality.', 5, '3f9e5089-91cb-4d1f-96a7-2628831bc7c1', 'fb34d858-cc8c-4cd8-986d-761efcac119b'),
+('Decent product', 'The product is decent for the price. Not exceptional, but does the job.', 3, '3fad172d-38df-4877-93e5-f7d51c250484', 'fb34d858-cc8c-4cd8-986d-761efcac119b'),
+('Mixed feelings', 'The product has its pros and cons. Not sure if I would recommend it.', 3, '025a136d-1dd6-4500-a771-c04671c1ee05', 'fb34d858-cc8c-4cd8-986d-761efcac119b'),
+('Overpriced', 'I feel like I paid too much for this product. It should be cheaper for what it offers.', 2, 'be6c11c3-629b-496b-87fc-2b8d8173f99f', '2207c6a5-934e-4358-a8ea-bf8f7b04231d'),
+('Great value', 'The product offers great value for the price. I am very satisfied.', 5, '4d9c5baa-b320-4476-b6eb-8e5ba078426c', '2207c6a5-934e-4358-a8ea-bf8f7b04231d'),
+('Not bad', 'The product is okay. It is not the best, but it gets the job done.', 3, 'a248cae4-037d-4572-ac46-6644cfb19037', '2207c6a5-934e-4358-a8ea-bf8f7b04231d'),
+('Poor quality', 'I am very disappointed with the quality of this product. It broke easily.', 1, '6eb8ae1f-b044-41e2-8764-d6dcb6474df0', '5d6ccb7f-60f9-4f1a-a4b2-bfb5905359e6'),
+('Highly recommended', 'I highly recommend this product. It is worth every penny.', 5, '6d77c083-c666-4e67-9b5d-db1b999a878d', '5d6ccb7f-60f9-4f1a-a4b2-bfb5905359e6'),
+('Good product', 'The product is good overall. I am satisfied with my purchase.', 4, 'bca31322-d212-46ae-894d-3a5ab9c3fb90', '5d6ccb7f-60f9-4f1a-a4b2-bfb5905359e6'),
+('Room for improvement', 'The product is decent, but there is definitely room for improvement.', 3, 'af7d19e3-8e9d-4a5f-b776-936d3ff81519', '7a02b748-20b5-49c3-aa60-4e6a8accc212'),
+('Exceptional quality', 'I am impressed by the quality of this product. It exceeded my expectations.', 5, '1bd11b97-f88b-4a2f-8bf1-fa79702a8425', '7a02b748-20b5-49c3-aa60-4e6a8accc212');
+
+-- Adding timestamp to rating
+ALTER TABLE handcrafted.rating
+ADD rating_timestamp TIMESTAMP NOT NULL DEFAULT '2020-01-01 00:00:00';

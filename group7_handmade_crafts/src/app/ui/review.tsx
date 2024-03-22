@@ -7,7 +7,7 @@ export default function Reviews() {
     return (
         <div className='text-black'>
             <h3 className='text-2xl font-bold'>Reviews</h3>
-            {reviewsData.map(review => {
+            {/* {reviewsData.map(review => {
                return <Rating 
                     name={review.account_firstname}
                     title={review.rating_title} 
@@ -15,7 +15,8 @@ export default function Reviews() {
                     rating_value={review.rating_value}
                 />
             }
-            )}
+            )} */}
+            <Rating />
         </div>
     )
 }
