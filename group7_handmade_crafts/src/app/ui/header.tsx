@@ -4,10 +4,27 @@ import { UserCircleIcon } from "@heroicons/react/24/outline";
 import SignIn from "./sign-in"
 import { patrick_hand } from "./fonts";
 import Category from "./category";
+import React from "react";
+import { fetchCategories } from "../lib/online-data";
 
-export default function Header() {
+export default async function Header() {
+  const categoriesList02 = await fetchCategories();
+
+  const categoriesList = [
+    {id: "wwnew231",
+    name: "barro",
+    icon: "asdad"},
+    {id: "w49532n3",
+    name: "tejido",
+    icon: "ñljj"}
+  ]
+
+  const name = "moicanitoooooooooo"
+ 
+ 
 
   return (
+    <>
     <header className="flex flex-col relative">
       <div className="flex flex-row p-4 items-center justify-between bg-amber-400 md:bg-white md:items-center">
         {/* Site name */}
@@ -25,15 +42,25 @@ export default function Header() {
           <h1 className={`${patrick_hand.className} text-2xl md:text-6xl text-black`}>
             Handcrafted Haven
           </h1>
+          
         </Link>
 
         <SignIn />
       </div>
       <div
-        className={`flex flex-row flex-wrap justify-center bg-amber-400 md:bg-white gap-2 p-4`}
+        className={`flex flex-row flex-wrap justify-center bg-amber-400 md:bg-white gap-2 p-4 text-black`}
       >
-        <Category />
+
+        <Category categories={categoriesList02}/>
+        
+      </div>
+
+      <div>
+        
       </div>
     </header>
+   
+    </>
+
   );
 }
