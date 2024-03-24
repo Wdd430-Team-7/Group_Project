@@ -24,6 +24,7 @@ export default async function Home() {
           <Search placeholder="Search by category/price..."/>
         </div>
         <div className="p-4 mx-4">
+        <div className="p-4 mx-4">
           {/* Lourenco */}
           <NewItems />
         </div>
