@@ -1,5 +1,5 @@
 import { sql } from "@vercel/postgres";
-import { Account, Category, Product, Rating, Story } from "./definitions";
+import { Account, Category, Product, Rating, Story, ProductsTable } from "./definitions";
 
 export async function fetchAccounts() {
     try {
@@ -137,4 +137,45 @@ export async function fetchNewProducts(limit: number) {
     } catch(error) {
         throw new Error('Failed to fetch new products.');
     }
+}
+
+const ITEMS_PER_PAGE = 6;
+export async function fetchFilteredProducts(
+  query: string,
+  currentPage: number,
+) {
+//   noStore(); // what does this do again?
+  const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+
+  try {
+    const products = await sql<ProductsTable>`
+      SELECT
+        p.product_id,
+        p.product_title,
+        p.product_description,
+        p.product_image,
+        p.product_price,
+        p.category_id,
+        p.artist_id,
+        c.category_name,
+        a.account_firstname,
+        a.account_lastname
+      FROM handcrafted.product p
+      JOIN handcrafted.account a ON p.artist_id = a.account_id
+      JOIN handcrafted.category c ON p.category_id = c.category_id
+      WHERE
+        p.product_title ILIKE ${`%${query}%`} OR
+        p.product_description ILIKE ${`%${query}%`} OR
+        c.category_name ILIKE ${`%${query}%`} OR
+        a.account_firstname ILIKE ${`%${query}%`} OR
+        a.account_lastname ILIKE ${`%${query}%`}
+      ORDER BY p.product_date_created DESC
+      LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
+    `;
+
+    return products.rows;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch products.');
+  }
 }
