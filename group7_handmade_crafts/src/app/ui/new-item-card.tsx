@@ -15,9 +15,8 @@ export default async function NewItemCard() {
         const artist = item.account_firstname + " " + item.account_lastname;
         const account_id = item.account_id;
         return (
-          <div className="p-4 rounded-md hover:bg-amber-200 flex flex-col m-4 gap-1">
+          <div key={id} className="p-4 rounded-md hover:bg-amber-200 flex flex-col m-4 gap-1">
             <Link
-              key={id}
               href={`/product/${id}`}
               className="flex flex-col gap-1"
             >
