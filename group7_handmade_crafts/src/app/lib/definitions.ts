@@ -5,6 +5,7 @@ export type Account = {
     account_email: string;
     account_password: string;
     account_image: string;
+    account_description: string;
 };
 
 export type Category = {
@@ -20,7 +21,8 @@ export type Product = {
     product_image: string,
     product_price: number,
     category_id: number,
-    artist_id: string
+    artist_id: string,
+    product_date_created: Date,
 };
 
 export type Rating = {
@@ -29,7 +31,8 @@ export type Rating = {
     rating_review_text: string,
     rating_value: number,
     buyer_id: string,
-    product_id: string
+    product_id: string,
+    rating_timestamp: Date
 }
 
 export type Story = {

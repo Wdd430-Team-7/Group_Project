@@ -11,7 +11,7 @@ import Image from "next/image";
       
 export default async function Product(){
   const products = await fetchAllProducts();
-  console.log(products);
+  //console.log(products);
   return (<>
           <Header/>
           
@@ -44,7 +44,6 @@ export default async function Product(){
             <footer className="w-full bg-amber-400 p-4 text-center">
               <p>Footer</p>
             </footer>
-          
   
   </>)
   

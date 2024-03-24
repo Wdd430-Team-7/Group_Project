@@ -98,6 +98,7 @@ export default async function Category(categories: CategoryType[]) {
 
     /*
     <>
+
       {categoriesList.map((category:CategoryType) => {
         const LinkIcon = category.icon;
         return (
@@ -108,6 +109,7 @@ export default async function Category(categories: CategoryType[]) {
           >
           <p className="md:hidden text-2xl">{category.icon}</p>
           <p className="hidden md:block">{category.name}</p>
+
           </Link>
         );
       })}
