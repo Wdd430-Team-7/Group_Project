@@ -10,7 +10,7 @@ const NewItems: React.FC = () => {
       <div className="flex flex-col md:flex-row gap-4 p-4">
         <div className="item">
           <Image
-            src="/images/extra-images/new_items/advent-wreath-1069961_1280.jpg" // Add the path to your image
+            src="/images/products/advent-wreath-1069961_1280.jpg" // Add the path to your image
             alt="New Item 1"
             width={200} // Adjust width as needed
             height={200} // Adjust height as needed
@@ -20,7 +20,7 @@ const NewItems: React.FC = () => {
         </div>
         <div className="item">
           <Image
-            src="/images/extra-images/new_items/art-3106207_1280.jpg" // Add the path to your image
+            src="/images/products/art-3106207_1280.jpg" // Add the path to your image
             alt="New Item 2"
             width={200} // Adjust width as needed
             height={200} // Adjust height as needed

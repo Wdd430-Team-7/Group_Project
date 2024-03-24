@@ -75,18 +75,9 @@ export async function fetchProductsByCategory(category_id: number) {
     }
 }
 
-export async function fetchCategoryName(category_id: number) {
+export async function fetchRecentRatings(limit: number) {
     try {
-        const data = await sql`SELECT category_name FROM handcrafted.category WHERE category_id = ${category_id}`;
-        return data.rows[0];
-    } catch(error) {
-        throw new Error('Failed to fetch category name: ' + error);
-    }
-}
-
-export async function fetchTopRatings(limit: number) {
-    try {
-        // returns highest ratings up to limit
+        // returns recent ratings by limit
         const data = await sql`SELECT r.rating_id, r.rating_title, r.rating_review_text, r.rating_value, p.product_title, p.product_id, p.product_image, a.account_firstname, a.account_lastname, a.account_id 
         FROM handcrafted.rating r 
         INNER JOIN handcrafted.product p ON r.product_id = p.product_id 

@@ -9,7 +9,7 @@ const FeaturedArtists: React.FC = () => {
       <div className="flex flex-col">
         <div className="artist">
           <Image
-            src="/images/extra-images/artists/Jeremy.jpg" // Add the path to your image
+            src="/images/users/Jeremy.jpg" // Add the path to your image
             alt="Artist 1"
             width={200} // Adjust width as needed
             height={200} // Adjust height as needed
@@ -19,7 +19,7 @@ const FeaturedArtists: React.FC = () => {
         </div>
         <div className="artist">
           <Image
-            src="/images/extra-images/artists/Jade.jpg" // Add the path to your image
+            src="/images/users/Jade.jpg" // Add the path to your image
             alt="Artist 2"
             width={200} // Adjust width as needed
             height={200} // Adjust height as needed
