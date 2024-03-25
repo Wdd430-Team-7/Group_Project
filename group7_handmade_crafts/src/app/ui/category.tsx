@@ -1,67 +1,118 @@
-'use client';
-
+'use client'
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import clsx from "clsx";
+import { patrick_hand, inter } from "./fonts";
+import React from "react";
+import clsx from 'clsx';
+import { usePathname } from 'next/navigation';
 
-const categories = [
-  {
-    category_id: 1,
-    category_name: 'Artisanal',
-    category_icon: '🖼️',
-  },
-  {
-    category_id: 2,
-    category_name: 'Textile and Fabrics',
-    category_icon: '👕',
-  },
-  {
-    category_id: 3,
-    category_name: 'Jewelry and Accessories',
-    category_icon: '💎',
-  },
-  {
-    category_id: 4,
-    category_name: 'Home and Furnishings',
-    category_icon: '🏠',
-  },
-  {
-    category_id: 5,
-    category_name: 'Personal Care',
-    category_icon: '🧼',
-  },
-  {
-    category_id: 6,
-    category_name: 'Stationery and Paper Goods',
-    category_icon: '📜',
-  },
-]
+//import { CategoryType } from './types'; // Asegúrate de importar la interfaz CategoryType desde el archivo correcto
+interface CategoryType {
+  category_id: number,
+  category_name: string,
+  category_icon: string
 
-export default function Category() {
+}
+
+interface CategoryProps {
+  categories: CategoryType[];
+}
+
+const Category: React.FC<CategoryProps> = ({ categories }) => {
+  
   const pathname = usePathname();
-  return (
-    <>
-      {categories.map((category) => {
-        const LinkIcon = category.category_icon;
-        const id = category.category_id;
-        const name = category.category_name;
-        const link = `/category/${id}`;
+
+  return(
+    categories.map((category:CategoryType)=>(
+
+      <Link key={category.category_id}
+      href={`/category/${category.category_id}`}
+      className={clsx(
+        "bg-white px-4 py-2 rounded-md hover:bg-amber-200 text-black",
+        {
+          "bg-sky-100 text-blue-600": pathname === `/category/${category.category_id}`,
+        },
+      )}
+      >
+       
+        <p className="md:hidden text-2xl">{category.category_icon}</p>
+        <p className="hidden md:block">{category.category_name}</p>
+        
+      </Link>
+      
+      
+    ))
+
+
+  )
+
+
+  /*
+      categories.map((category:CategoryType) => {
+        //const LinkIcon = category.icon;
         return (
           <Link
-            key={id}
-            href={link}
-            className={clsx(
-              "bg-white px-4 py-2 rounded-md hover:bg-amber-200 text-black",
-              {
-                "bg-amber-200 underline": pathname === link,
-              },
-            )}
+            key={category.id}
+            href={`/category/${category.id}`}
+            className="bg-white px-4 py-2 rounded-md hover:bg-amber-200 text-black"
           >
-          <p className="md:hidden text-2xl">{LinkIcon}</p>
-          <p className="hidden md:block">{name}</p>
+          <p className="md:hidden text-2xl">{category.icon}</p>
+          <p className="hidden md:block">{category.name}</p>
+          </Link>
+        );
+      })
+    */
+
+};
+
+export default Category;
+
+
+
+/*
+interface Nombre{
+  name: string;
+}
+
+interface CategoryType {
+  
+  id: string;
+  name: string;
+  icon: string;
+
+}
+
+
+
+export default async function Category(categories: CategoryType[]) {
+  
+  return (
+
+    
+      <ul>
+        {categories.map((category)=>(
+          <li key={category.id}>{category.name}</li>
+        ))}
+      </ul>*/
+    
+
+
+    /*
+    <>
+
+      {categoriesList.map((category:CategoryType) => {
+        const LinkIcon = category.icon;
+        return (
+          <Link
+            key={category.id}
+            href={`/category/${category.id}`}
+            className="bg-white px-4 py-2 rounded-md hover:bg-amber-200 text-black"
+          >
+          <p className="md:hidden text-2xl">{category.icon}</p>
+          <p className="hidden md:block">{category.name}</p>
+
           </Link>
         );
       })}
     </>
   );
-}
+}*/
