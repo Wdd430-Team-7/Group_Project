@@ -21,7 +21,7 @@ export default async function Home() {
           </div>
           <HomeSearch placeholder="" />
         </div>
-        <div className="p-4 mx-4">
+        <div className="flex flex-col p-4 mx-4 justify-center">
           {/* Lourenco */}
           <NewItems />
         </div>
