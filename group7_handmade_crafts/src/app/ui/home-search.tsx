@@ -28,7 +28,7 @@ export default function HomeSearch({ placeholder }: { placeholder: string }){
         type='text'
         className="peer block w-full rounded-md border border-yellow-500 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 bg-white"
         placeholder={placeholder}
-        name="search"
+        id="search"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         defaultValue={searchParams.get('query')?.toString()}

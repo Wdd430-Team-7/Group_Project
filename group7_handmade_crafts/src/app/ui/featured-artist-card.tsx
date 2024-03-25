@@ -17,13 +17,14 @@ export default async function FeaturedArtistCard() {
           <Link
             key={id}
             href={`/artist/${id}`}
-            className="flex flex-row gap-2 p-4 mt-4 bg-amber-100 rounded-full hover:bg-amber-200 text-black"
+            className="flex flex-row gap-2 p-4 mt-4 bg-amber-100 rounded-md md:rounded-full hover:bg-amber-200 text-black"
           >
             <Image
               src={image}
               width={100}
               height={100}
               alt={`${firstName} ${lastName}`}
+              style={{objectFit: "cover"}}
               className="rounded-full"
             />
             <div className="flex flex-col items-begin">

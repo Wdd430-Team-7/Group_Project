@@ -16,10 +16,10 @@ export default async function Home() {
         <div className="flex-col justify-center p-4 m-4 bg-amber-100">
           <div className="flex w-full items-center justify-center">
             <h1 className={`${lato.className} text-2xl text-black`}>
-              Search over 1000 of handcrafted artist works
+              Search over thousands of handcrafted artist works
             </h1>
           </div>
-          <HomeSearch placeholder="" />
+          <HomeSearch placeholder="Search by category/price..." />
         </div>
         <div className="flex flex-col p-4 mx-4 justify-center">
           {/* Lourenco */}
@@ -37,7 +37,7 @@ export default async function Home() {
         </div>
       </main>
       <footer className="w-full bg-amber-400 p-4 text-center">
-        <p>Footer</p>
+        <p className="text-black">Footer</p>
       </footer>
     </>
   );

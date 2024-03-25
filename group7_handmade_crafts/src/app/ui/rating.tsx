@@ -36,7 +36,7 @@ export default async function Rating() {
                 {[...Array(emptyStars)].map((star) => {
                   return <StarOutline className="w-5 h-5 text-amber-500" />;
                 })} */}
-                <p className="w-5 h-5 text-amber-500">{rating_value} stars</p>
+                <p className="w-5 h-5 text-amber-700">{rating_value} stars</p>
               </div>
             </div>
             <p className="flex flex-grow">{review}</p>
