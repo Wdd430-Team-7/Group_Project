@@ -13,7 +13,7 @@ export default async function Home() {
     <>
       <Header />
       <main className="bg-white min-h-screen flex flex-col text-black">
-        <div className="flex-col justify-center p-4 m-4 bg-amber-100">
+        <div className="flex-col justify-center p-4 m-4 md:w-4/5 self-center">
           <div className="flex w-full items-center justify-center">
             <h1 className={`${lato.className} text-2xl text-black`}>
               Search over thousands of handcrafted artist works
