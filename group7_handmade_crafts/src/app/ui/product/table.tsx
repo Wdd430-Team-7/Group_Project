@@ -15,6 +15,7 @@ export default async function ProductsTable({
   category: number;
 }) {
   let products;
+  // is there a better way to do this?
   if (category != 0) {
     products = await fetchFilteredProductsByCategory(query, currentPage, category);
   } else {
