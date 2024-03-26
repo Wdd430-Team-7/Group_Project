@@ -2,17 +2,24 @@ import Image from 'next/image';
 // import { UpdateInvoice, DeleteInvoice } from '@/app/ui/invoices/buttons';
 // import InvoiceStatus from '@/app/ui/invoices/status';
 import { formatDateToLocal, formatCurrency } from '@/utils/utils';
-import { fetchFilteredProducts } from '@/app/lib/online-data';
+import { fetchFilteredProducts, fetchFilteredProductsByCategory } from '@/app/lib/online-data';
 import Link from 'next/link';
 
 export default async function ProductsTable({
   query,
   currentPage,
+  category,
 }: {
   query: string;
   currentPage: number;
+  category: number;
 }) {
-  const products = await fetchFilteredProducts(query, currentPage);
+  let products;
+  if (category != 0) {
+    products = await fetchFilteredProductsByCategory(query, currentPage, category);
+  } else {
+    products = await fetchFilteredProducts(query, currentPage);
+  }
 
   return (
     <div className="mt-6 flow-root">

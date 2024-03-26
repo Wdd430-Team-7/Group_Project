@@ -28,7 +28,7 @@ export default async function SearchPage({
       {/* Search Results */}
       <div className="min-h-screen m-5">
         <h2>Search Results</h2>
-        <ProductsTable query={query} currentPage={currentPage}/>
+        <ProductsTable query={query} currentPage={currentPage} category={categoryId}/>
       </div>
     </>
   );
