@@ -1,14 +1,20 @@
-import Header from "../../ui/header";
+import Header from "../../../ui/header";
 import Image from "next/image";
 import { fetchProductById } from "@/app/lib/online-data";
-
+import ProductRating from "@/app/ui/product/average-rating";
 
 export default async function ProductDetail({params}:{
-  params:{id: string}}){
-    const productSelected = await fetchProductById(params.id)
+  params:{id: string, item:string}}){
+
+
+  const {id, item} = params;
+  console.log(id, item)
+
+  const productSelected = await fetchProductById(id);
 
   return(
     <>
+  
     <Header/>
     
       <div className="text-gray-700 body-font overflow-hidden bg-white h-dvh">
@@ -17,6 +23,7 @@ export default async function ProductDetail({params}:{
           <Image  className="object-center rounded border border-gray-200" src={`${productSelected.product_image}`} alt="" width={400} height={400}/>
             <div className="text-center mt-10">
               <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{productSelected.product_title}</h1>
+              <ProductRating id={productSelected.product_id} />
               <p className="leading-relaxed">{productSelected.product_description}</p>
               
               <div className="flex">
@@ -35,5 +42,3 @@ export default async function ProductDetail({params}:{
 
 </>  
   )}
-
-

@@ -1,6 +1,8 @@
 import { calculateProductRating } from "@/app/lib/online-data"
 import { StarIcon as StarOutline } from "@heroicons/react/24/outline";
 import { StarIcon as StarSolid } from "@heroicons/react/24/solid";
+
+
 export default async function ProductRating({id} : {id: string}) {
     const data = await calculateProductRating(id);
     const average_rating = data.average_value;
