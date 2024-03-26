@@ -101,7 +101,7 @@ export async function fetchRatingsByProduct(product_id: string) {
 
 export async function calculateProductRating(product_id: string) {
     try {
-        const data = await sql`SELECT ROUND(AVG(rating_value), 1) AS average_value FROM handcrafted.rating WHERE product_id = ${product_id}`;
+        const data = await sql`SELECT ROUND(AVG(rating_value), 1) AS average_value, COUNT(*) AS num_ratings FROM handcrafted.rating WHERE product_id = ${product_id}`;
         return data.rows[0];
     } catch(error) {
         throw new Error('Failed to calculate product rating.');

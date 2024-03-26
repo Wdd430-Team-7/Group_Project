@@ -1,6 +1,7 @@
 import { fetchAccountById, fetchProductById } from "@/app/lib/online-data";
 import Image from "next/image";
 import Link from "next/link";
+import ProductRating from "./product/average-rating";
 
 export default async function ProductCard({ id }: { id: string }) {
   const product_id = id;
@@ -34,7 +35,8 @@ export default async function ProductCard({ id }: { id: string }) {
               }).format(product_price)}
             </p>
             {/* rating needs dynamic */}
-            <p>⭐⭐⭐⭐⭐</p>
+            <ProductRating id={product_id} />
+            {/* <p>⭐⭐⭐⭐⭐</p> */}
             <p className="font-bold">{product_title}</p>
             {/* <p className="mb-2 text-wrap">{product_description}</p> */}
           </div>
