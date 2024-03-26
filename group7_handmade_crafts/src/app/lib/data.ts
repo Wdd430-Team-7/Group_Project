@@ -3,12 +3,12 @@ import pool from '../../utils/postgres';
 export async function fetchProductFromDB(){
   try{
     const client = await pool.connect();
-    console.log("connected");
+    // console.log("connected");
 
     
     const result = await client.query("SELECT * FROM product");
     const data = result.rows;
-    console.log("Fetched data", data);
+    // console.log("Fetched data", data);
 
     client.release();
     return data;

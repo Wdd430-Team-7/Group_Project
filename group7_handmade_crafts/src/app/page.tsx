@@ -8,6 +8,7 @@ import Search from "./ui/search"; // Use this in the actual search page instead
 import HomeSearch from "./ui/home-search"; // Use this for the home page
 import Reviews from "./ui/review";
 import { fetchCategories } from "./lib/online-data";
+import { Suspense } from "react";
 
 export default async function Home() {
   const categories = await fetchCategories();
@@ -21,7 +22,12 @@ export default async function Home() {
               Search over thousands of handcrafted artist works
             </h1>
           </div>
-          <HomeSearch placeholder="Search by category/price..." categories={categories} />
+          <Suspense>
+            <HomeSearch
+              placeholder="Search by category/price..."
+              categories={categories}
+            />
+          </Suspense>
         </div>
         <div className="flex flex-col p-4 mx-4 justify-center">
           {/* Lourenco */}

@@ -5,7 +5,7 @@ import {fetchCategories} from '../lib/online-data';
 export const getServerSideProps = async () => {
   const data = await fetchCategories();
   
-  console.log(data);
+  // console.log(data);
   return {
       props: { categories: data }
   };
