@@ -15,7 +15,7 @@ export default async function SearchPage({
   };
 }) {
   const categories = await fetchCategories();
-  const query = searchParams?.query || "not found";
+  const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page) || 1;
   const categoryId = Number(searchParams?.category) || 0;
 
