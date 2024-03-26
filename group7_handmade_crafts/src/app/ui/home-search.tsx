@@ -6,8 +6,15 @@ import { useState } from "react";
 import CategorySelect from "./search/category-select";
 import { Category } from "../lib/definitions";
 
-export default function HomeSearch({ placeholder, categories }: { placeholder: string, categories: Category[] }) {
+export default function HomeSearch({
+  placeholder,
+  categories,
+}: {
+  placeholder: string;
+  categories: Category[];
+}) {
   const [query, setQuery] = useState("");
+  const [category, setCategory] = useState("0");
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
@@ -16,9 +23,13 @@ export default function HomeSearch({ placeholder, categories }: { placeholder: s
   const handleSearch = (e: any) => {
     e.preventDefault();
     if (query.trim() === "") {
-      router.push("/search");
+      router.push(`/search?category=${encodeURIComponent(category)}`);
     } else {
-      router.push(`/search?query=${encodeURIComponent(query)}`);
+      router.push(
+        `/search?category=${encodeURIComponent(
+          category
+        )}&query=${encodeURIComponent(query)}`
+      );
     }
   };
 
@@ -43,12 +54,15 @@ export default function HomeSearch({ placeholder, categories }: { placeholder: s
         <MagnifyingGlassIcon className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
       </button>
       <select
-        id="category_id"
         name="category_id"
+        id="category_id"
+        defaultValue={searchParams.get("category")?.toString()}
         className={`${inter.className} absolute right-3 self-center bg-white text-right w-16 md:w-auto`}
+        onChange={(e) => setCategory(e.target.value)}
       >
         <option value="0">Any</option>
-        <CategorySelect categories={categories}/>
+        <CategorySelect categories={categories} selected={Number(category)} />
+
       </select>
     </form>
   );
