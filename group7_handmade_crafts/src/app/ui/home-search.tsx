@@ -61,7 +61,7 @@ export default function HomeSearch({
         onChange={(e) => setCategory(e.target.value)}
       >
         <option value="0">Any</option>
-        <CategorySelect categories={categories} selected={Number(category)} />
+        <CategorySelect categories={categories} />
 
       </select>
     </form>

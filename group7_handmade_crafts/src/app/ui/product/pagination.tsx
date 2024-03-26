@@ -1,5 +1,5 @@
 'use client';
-
+// This was copied from the nextjs dashboard. It is not yet adjusted for this project. - Shine
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import Link from 'next/link';

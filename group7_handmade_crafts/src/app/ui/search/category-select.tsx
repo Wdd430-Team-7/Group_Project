@@ -4,10 +4,8 @@ import { inter } from "../fonts";
 
 export default function CategorySelect({
   categories,
-  selected,
 }: {
   categories: Category[];
-  selected: number;
 }) {
   return (
     <>
