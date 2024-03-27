@@ -1,17 +1,16 @@
-import { Metadata } from 'next';
-import { patrick_hand, lato } from "@/app/ui/fonts";
-import './ArtistsPage.css';
-import { fetchProducts, fetchArtists } from '../lib/data';
+import { Metadata } from "next";
+import { fetchArtists, fetchProducts } from "../lib/data";
+import "./ArtistsPage.css";
 
-import Image from 'next/image';
+import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: 'Handcrafted Haven | Artists',
+  title: "Handcrafted Haven | Artists",
 };
 
 export default async function Page() {
   const artists = await fetchArtists();
-  const products =await fetchProducts();
+  const products = await fetchProducts();
   return (
     <div>
       <div className="artists-container">
@@ -25,12 +24,10 @@ export default async function Page() {
             />
             <h2 className="my-4 font-semibold">{artist.name}</h2>
             <p>{artist.artist_bio}</p>
-            <div className="products-container">
-        
-            </div>
+            <div className="products-container"></div>
           </div>
         ))}
       </div>
     </div>
   );
-};
+}
