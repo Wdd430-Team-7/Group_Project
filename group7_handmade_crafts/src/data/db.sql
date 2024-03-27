@@ -559,4 +559,22 @@ VALUES
 
 -- Adding timestamp to rating
 ALTER TABLE handcrafted.rating
-ADD rating_timestamp TIMESTAMP NOT NULL DEFAULT '2020-01-01 00:00:00';
+ADD rating_timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
+
+-- alter dates to current
+ALTER TABLE handcrafted.product
+ALTER COLUMN product_date_created SET DEFAULT CURRENT_TIMESTAMP;
+
+ALTER TABLE handcrafted.story
+ALTER COLUMN story_date SET DEFAULT CURRENT_TIMESTAMP;
+
+INSERT INTO handcrafted.story (
+	story_content,
+	artist_id
+)
+VALUES 
+('Today in my cozy studio, I breathed life into dreams with my paintbrush. As hues faded, I unearthed magic in imperfections.✨','1aa97dfd-5aa0-4f80-afce-8cef34880226'),
+('In the silence of my studio, I sculpted whispers of ancient tales. Each stroke echoed history secrets, immortalized in clay and stone. 🗿', '31a83f3d-1a14-40f9-b7cc-30f9d036f572'),
+('Lost in melody, I composed symphonies of the heart. My music wove tales of love and loss, echoing through time. 🎶', '538c6f54-a22a-49a3-8815-8938c2f58932'),
+('Amidst chaos, I found solace. My abstract art mirrored life unpredictability, revealing beauty in the chaos. 🎨', 'ad93d122-1058-465e-8720-1ed2f6f8cabb'),
+('Through my lens, I captured fleeting moments of joy. Mundane scenes transformed into tales of wonder. 📷', 'aea73477-ff13-41a1-a86a-5c30859494da');
