@@ -3,26 +3,33 @@ import Image from "next/image";
 import { fetchProductById } from "@/app/lib/online-data";
 import ProductRating from "@/app/ui/product/average-rating";
 import FormReviews from "@/app/ui/product/formReview";
+import { fetchAccounts } from "@/app/lib/online-data";
+
+
+
 
 
 export default async function AddReviews({params,}:{
-  params:{id: string, item: string}}){
+  params:{id: string, buyer: string}}){
 
   
 
-  const {id, item} = params;
+  const {id, buyer} = params;
   //const name = params.item
-  console.log(id, item)
+  
 
-  const productSelected = await fetchProductById(id)
+  //const productSelected = await fetchProductById(id);
 
+  //const accounts = await fetchAccounts();
+  //console.log(accounts);
+  console.log(buyer)
 
   return(
     <>
     
     <Header/>
     
-    <div><FormReviews/></div>
+    <div><FormReviews id={id} /></div>
       
     <footer className="w-full bg-amber-400 p-4 text-center">
             <p>Footer</p>
