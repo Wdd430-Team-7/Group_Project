@@ -11,7 +11,8 @@ export default function Page() {
                 <input type="submit" value="Post" className="px-4 py-2 bg-amber-500 rounded-md w-fit self-center"/>
             </form>
             <p>display a list of stories here like an X feed from most recent to oldest</p>
-            <div>
+            <div className="flex flex-col gap-2 bg-amber-100 p-4">
+                <h2 className="font-bold text-center">My Stories</h2>
                 <Story text="If you could hie to Kolob." date="2024-01-01"/>
                 <Story text="If you could hie to Kolob." date="2024-01-01"/>
                 <Story text="If you could hie to Kolob." date="2024-01-01"/>
