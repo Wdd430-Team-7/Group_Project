@@ -19,7 +19,7 @@ export default async function ProductCard({ id }: { id: string }) {
         key={product_id}
         className="flex flex-col shadow-md rounded-md bg-white hover:bg-amber-200 w-64"
       >
-        <Link href={`../product/${product_id}`} className="flex flex-col w-64">
+        <Link href={`../product/details/${product_id}`} className="flex flex-col w-64">
           <Image
             src={product_image}
             width={320}
@@ -43,7 +43,7 @@ export default async function ProductCard({ id }: { id: string }) {
         </Link>
 
         <Link
-          href={`../account/${artist_id}`}
+          href={`../artist/${artist_id}`}
           className="underline mb-4 mx-4 hover:text-green-500 w-64"
         >
           {artist_name}
