@@ -2,7 +2,7 @@ import Header from "../ui/header";
 import SearchBar from "../ui/search";
 import Pagination from "../ui/product/pagination";
 import { Suspense } from "react";
-import ProductsTable from "../ui/product/table";
+import ProductsTable from "../ui/search/table";
 import { fetchCategories } from "../lib/online-data";
 
 export default async function SearchPage({
