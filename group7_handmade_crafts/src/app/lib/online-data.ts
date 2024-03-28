@@ -92,7 +92,7 @@ export async function fetchRecentRatings(limit: number) {
 export async function fetchRatingsByProduct(product_id: string) {
     try {
         // returns rating title, text, rate value, reviewer account data by product_id
-        const data = await sql`SELECT r.rating_id, r.rating_title, r.rating_review_text, r.rating_value, r.buyer_id, a.account_firstname, a.account_lastname, a.account_image, p.product_id, p.product_title FROM handcrafted.rating r INNER JOIN handcrafted.product p ON r.product_id = p.product_id INNER JOIN handcrafted.account a ON a.account_id = r.buyer_id WHERE r.product_id = ${product_id}`;
+        const data = await sql`SELECT r.rating_id, r.rating_title, r.rating_review_text, r.rating_value, r.rating_reviewer, p.product_id, p.product_title, a.account_id, a.account_firstname, a.account_lastname, a.account_image FROM handcrafted.rating r INNER JOIN handcrafted.product p ON r.product_id = p.product_id INNER JOIN handcrafted.account a ON p.artist_id = a.account_id WHERE r.product_id = ${product_id}`;
         return data.rows;
     } catch(error) {
         throw new Error('Failed to fetch product ratings.');

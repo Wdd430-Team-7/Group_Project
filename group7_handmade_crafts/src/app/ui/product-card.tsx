@@ -19,7 +19,7 @@ export default async function ProductCard({ id }: { id: string }) {
         key={product_id}
         className="flex flex-col shadow-md rounded-md bg-white hover:bg-amber-200 w-64"
       >
-        <Link href={`../product/${product_id}`} className="flex flex-col w-64">
+        <Link href={`../product/details/${product_id}`} className="flex flex-col w-64">
           <Image
             src={product_image}
             width={320}

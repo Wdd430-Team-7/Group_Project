@@ -10,12 +10,13 @@ interface ProductRating {
   rating_title: string;
   rating_review_text: string;
   rating_value: number;
-  buyer_id: string;
+  rating_reviewer: string;
+  product_id: string;
+  product_title: string;
+  artist_id: string;
   account_firstname: string;
   account_lastname: string;
   account_image: string;
-  product_id: string;
-  product_title: string;
 }
 
 interface RatingProps{
@@ -29,7 +30,7 @@ const RatingItem: React.FC<RatingProps> =({ ratings }) => {
     <>
       {ratings.map((item:ProductRating) => {
        
-        const artist_id = item.buyer_id;
+        const artist_id = item.artist_id;
         const product_id = item.product_id;
         const product_link = `/product/${product_id}`;
         const artist = item.account_firstname + " " + item.account_lastname;
