@@ -2,6 +2,7 @@ import { StarIcon as StarOutline } from "@heroicons/react/24/outline";
 import { StarIcon as StarSolid } from "@heroicons/react/16/solid";
 import LikeButton from "./like-button";
 import { fetchRecentRatings } from "../lib/online-data";
+import ProductRating from "./product/average-rating";
 
 export default async function Rating() {
   const data = await fetchRecentRatings(5);
@@ -36,7 +37,8 @@ export default async function Rating() {
                 {[...Array(emptyStars)].map((star) => {
                   return <StarOutline className="w-5 h-5 text-amber-500" />;
                 })} */}
-                <p className="w-5 h-5 text-amber-700">{rating_value} stars</p>
+                {/* <p className="w-5 h-5 text-amber-700">{rating_value} stars</p> */}
+                <ProductRating id={product_id} />
               </div>
             </div>
             <p className="flex flex-grow">{review}</p>
