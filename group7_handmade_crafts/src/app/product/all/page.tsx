@@ -3,7 +3,7 @@ import Link from "next/link";
 import { patrick_hand, lato } from "@/app/ui/fonts";
 import Header from "../../ui/header";
 import Image from "next/image";
-
+import ProductRating from "@/app/ui/product/average-rating";
 
 
 //<div className={`${lato.className} flex justify-center text-black bg-white min-h-screen text-3xl`}>
@@ -28,7 +28,7 @@ export default async function Product(){
                     <div className="flex justify-center pt-6 "><Image  className="border-b-[3px] rounded-tl-md rounded-tr-md border-amber-500" src={`${product.product_image}`} alt={`Image for ${product.product_name}`} width={320} height={320}/></div>
                     <div className="px-6 py-4">
                         {/* rating needs dynamic */}
-                    <p>⭐⭐⭐⭐⭐</p>
+                        <ProductRating id={product.product_id} />
                         <div className={"font-bold text-xl mb-2"}>{product.product_title}</div>
                         <p className={"text-gray-700 text-base"}>
                             {product.product_description}
