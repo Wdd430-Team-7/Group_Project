@@ -6,6 +6,7 @@ import RatingItem from "@/app/ui/product/ratingbyProduct";
 import { fetchRatingsByProduct } from "@/app/lib/online-data";
 import { QueryResultRow } from "pg";
 import Link from "next/link";
+import { StringValidation } from "zod";
 
 export default async function ProductDetail({params}:{
   params:{id: string, item:string}}){
@@ -23,12 +24,13 @@ export default async function ProductDetail({params}:{
     rating_title: string;
     rating_review_text: string;
     rating_value: number;
-    buyer_id: string;
+    rating_reviewer: string;
+    product_id: string;
+    product_title: string;
+    artist_id: string;
     account_firstname: string;
     account_lastname: string;
     account_image: string;
-    product_id: string;
-    product_title: string;
   }
 
   interface RatingProps{
@@ -40,13 +42,13 @@ export default async function ProductDetail({params}:{
     rating_title: row.rating_title as string,
     rating_review_text: row.rating_review_text as string,
     rating_value: parseInt(row.rating_value as string, 10), 
-    buyer_id: row.buyer_id as string,
-    account_firstname: row.account_firstname as string,
-    account_lastname: row.account_lastname as string,
-    account_image: row.image as string,
+    rating_reviewer: row.rating_reviewer as string,
     product_id: row.product_id as string,
     product_title: row.product_title as string,
-  
+    artist_id: row.artist_id as string,
+    account_firstname: row.account_firstname as string,
+    account_lastname: row.account_lastname as string,
+    account_image: row.account_image as string
   }));
 
   return(
