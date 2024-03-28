@@ -1,29 +1,35 @@
-import React from 'react';
+import React from "react";
 import Image from "next/image";
 import Header from "./ui/header";
-import { lato } from '@/app/ui/fonts';
+import { lato } from "@/app/ui/fonts";
 import NewItems from "./ui/NewItems"; // Import NewItems component
 import FeaturedArtists from "./ui/FeaturedArtists"; // Import FeaturedArtists component
-import Search from "./ui/search";
+import Search from "./ui/search"; // Use this in the actual search page instead
+import HomeSearch from "./ui/home-search"; // Use this for the home page
 import Reviews from "./ui/review";
-
-
+import { fetchCategories } from "./lib/online-data";
+import { Suspense } from "react";
 
 export default async function Home() {
-  
+  const categories = await fetchCategories();
   return (
     <>
       <Header />
       <main className="bg-white min-h-screen flex flex-col text-black">
-        
-        <div className="flex-col justify-center p-4 m-4 bg-amber-100">
-        <div className="flex w-full items-center justify-center">
-          <h1 className={`${lato.className} text-2xl text-black`}>Search over 1000 of handcrafted artist works</h1>
+        <div className="flex-col justify-center p-4 m-4 md:w-4/5 self-center">
+          <div className="flex w-full items-center justify-center">
+            <h1 className={`${lato.className} text-2xl text-black`}>
+              Search over thousands of handcrafted artist works
+            </h1>
+          </div>
+          <Suspense>
+            <HomeSearch
+              placeholder="Search by category/price..."
+              categories={categories}
+            />
+          </Suspense>
         </div>
-      
-          <Search placeholder="Search by category/price..."/>
-        </div>
-        <div className="p-4 mx-4">
+        <div className="flex flex-col p-4 mx-4 justify-center">
           {/* Lourenco */}
           <NewItems />
         </div>
@@ -39,7 +45,7 @@ export default async function Home() {
         </div>
       </main>
       <footer className="w-full bg-amber-400 p-4 text-center">
-        <p>Footer</p>
+        <p className="text-black">Footer</p>
       </footer>
     </>
   );

@@ -41,3 +41,16 @@ export type Story = {
     story_date: Date,
     artist_id: string
 }
+
+export type ProductsTable = {
+    product_id: string,
+    product_title: string,
+    product_description: string,
+    product_image: string,
+    product_price: number,
+    category_id: number,
+    artist_id: string,
+    category_name: string,
+    account_firstname: string,
+    account_lastname: string,
+}

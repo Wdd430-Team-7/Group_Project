@@ -10,8 +10,10 @@ import Image from "next/image";
         
       
 export default async function Product(){
-  const products = await fetchProductsCategoryArtist();
-  console.log(products);
+
+  const products = await fetchAllProducts();
+  // console.log(products);
+
   return (<>
           <Header/>
           

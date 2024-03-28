@@ -1,49 +1,53 @@
 "use client";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { inter } from "./fonts";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
 import CategorySelect from "./search/category-select";
 import { Category } from "../lib/definitions";
-import { useState } from "react";
-import { inter } from "./fonts";
 
-export default function SearchBar({
+export default function HomeSearch({
   placeholder,
   categories,
 }: {
   placeholder: string;
   categories: Category[];
 }) {
-  const [query, setQuery] = useState(placeholder);
+  const [query, setQuery] = useState("");
+  const [category, setCategory] = useState("0");
   const searchParams = useSearchParams();
-  const categorySelected = searchParams.get("category");
-  const [category, setCategory] = useState(categorySelected);
   const pathname = usePathname();
+  const router = useRouter();
   const { replace } = useRouter();
 
-  function handleSearch(term: string, category: number) {
-    const params = new URLSearchParams(searchParams);
-    if (term) {
-      params.set("query", term);
-      setQuery(term);
-      params.set("category", category.toString());
-      setCategory(category.toString());
+  const handleSearch = (e: any) => {
+    e.preventDefault();
+    if (query.trim() === "") {
+      router.push(`/search?category=${encodeURIComponent(category)}`);
     } else {
-      params.delete("query");
+      router.push(
+        `/search?category=${encodeURIComponent(
+          category
+        )}&query=${encodeURIComponent(query)}`
+      );
     }
-    replace(`${pathname}?${params.toString()}`);
-  }
+  };
 
   return (
-    <div className="relative flex flex-1 flex-shrink-0 mx-5">
-      <label htmlFor="search" className="sr-only text-black"></label>
+    <form
+      onSubmit={handleSearch}
+      className="relative flex flex-1 flex-shrink-0"
+    >
+      <label htmlFor="search" className="sr-only text-black">
+        Search over thousands of handcrafted artist works
+      </label>
       <input
         type="text"
         className="peer block w-full rounded-md border border-yellow-500 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 bg-white"
         placeholder={placeholder}
         id="search"
-        onChange={(e) => {
-          handleSearch(e.target.value, Number(category));
-        }}
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
         defaultValue={searchParams.get("query")?.toString()}
       />
       <button type="submit">
@@ -54,11 +58,12 @@ export default function SearchBar({
         id="category_id"
         defaultValue={searchParams.get("category")?.toString()}
         className={`${inter.className} absolute right-3 self-center bg-white text-right w-16 md:w-auto`}
-        onChange={(e) => handleSearch(query, Number(e.target.value))}
+        onChange={(e) => setCategory(e.target.value)}
       >
         <option value="0">Any</option>
         <CategorySelect categories={categories} />
+
       </select>
-    </div>
+    </form>
   );
 }
