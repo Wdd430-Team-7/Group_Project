@@ -1,0 +1,51 @@
+/* artistDetail.module.css */
+
+/* Styles for Artist Detail Page */
+
+/* Container Styles */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: lightblue; /* Change background color to light gray */
+  color: #333; /* Change font color to dark gray */
+}
+
+/* Artist Name Style */
+.artistName {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Bio Style */
+.bio {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* Product Styles */
+.product {
+  margin-bottom: 40px;
+}
+
+.productTitle {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.productDescription {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.productPrice {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Image Styles */
+.image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}

@@ -1,5 +1,7 @@
 import { fetchAccountById, fetchProductByArtist } from "@/app/lib/online-data"; // Import the fetchAccountById function
 import Image from "next/image"; // Import Image from Next.js
+import styles from ".///artistDetail.module.css";
+
 
 // interface Artist {
 //   id: string;
@@ -19,33 +21,33 @@ export default async function ArtistDetail({
   const products = await fetchProductByArtist(params.id);
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>Artist Page</h1>
       <div>
-        <h1>{artist.account_firstname}</h1>
+        <h1 className={styles.artistName}>{artist.account_firstname}</h1>
         <Image
           src={artist.account_image}
           alt={artist.account_firstname}
           width={300}
           height={300}
-        />{" "}
-        {/* Use Image component for Next.js images */}
-        <p>Bio: {artist.account_description}</p>
-        <p>Age:</p>
+          className={styles.image}
+        />
+        <p className={styles.bio}>Bio: {artist.account_description}</p>
+        <p className={styles.age}>Age: {artist.age}</p>
         {products.map((product) => (
-          <div key={product.product_id}>
-            <h2>{product.product_title}</h2>
-            <p>{product.product_description}</p>
-            <p>${product.product_price}</p>
+          <div key={product.product_id} className={styles.product}>
+            <h2 className={styles.productTitle}>{product.product_title}</h2>
+            <p className={styles.productDescription}>{product.product_description}</p>
+            <p className={styles.productPrice}>${product.product_price}</p>
             <Image
               src={product.product_image}
               alt={product.product_title}
               width={300}
               height={300}
+              className={styles.image}
             />
           </div>
         ))}
-        {/* You might need to fetch and display products associated with the artist here */}
       </div>
     </div>
   );
