@@ -66,6 +66,15 @@ export async function fetchProductById(id: string) {
     }
 }
 
+export async function fetchProductByArtist(artist_id: string) {
+    try {
+        const data = await sql<Product>`SELECT * FROM handcrafted.product WHERE artist_id = ${artist_id}`;
+        return data.rows;
+    } catch(error) {
+        throw new Error('Failed to fetch products by artist.');
+    }
+}
+
 export async function fetchProductsByCategory(category_id: number) {
     try {
         const data = await sql`SELECT * FROM handcrafted.product WHERE category_id = ${category_id}`;
