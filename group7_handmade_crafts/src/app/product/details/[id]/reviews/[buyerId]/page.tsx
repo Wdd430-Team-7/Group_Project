@@ -27,13 +27,13 @@ export default async function AddReviews({params,}:{
   return(
     <>
     
-    <Header/>
+    
     
     <div><FormReviews id={id} /></div>
       
-    <footer className="w-full bg-amber-400 p-4 text-center">
-            <p>Footer</p>
-    </footer>
+    
+    
+    
 
 
 

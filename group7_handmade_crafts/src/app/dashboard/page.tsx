@@ -10,13 +10,13 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   return (
-    <main>
+    <div>
       <h1 className="mb-4 text-xl md:text-2xl text-center">Dashboard</h1>
       <div className="flex flex-col items-center gap-4">
         <ArtistCard />
         <Stories />
         <Reviews />
       </div>
-    </main>
+    </div>
   );
 }

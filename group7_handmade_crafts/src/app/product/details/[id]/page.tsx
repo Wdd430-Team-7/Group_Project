@@ -54,7 +54,7 @@ export default async function ProductDetail({params}:{
   return(
     <>
   
-    <Header/>
+    
     
       <div className="text-gray-700 body-font overflow-hidden bg-white">
         <div className="container px-5 py-24 mx-auto bg-amber-100 mt-10">
@@ -93,9 +93,9 @@ export default async function ProductDetail({params}:{
         
       </div>
      
-      <footer className="w-full bg-amber-400 p-4 text-center">
-              <p>Footer</p>
-      </footer>
+      
+      
+      
 
 
 
