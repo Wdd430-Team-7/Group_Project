@@ -55,13 +55,11 @@ export default async function ProductDetail({params}:{
       <div className="text-gray-700 body-font overflow-hidden bg-white">
         <div className="container px-5 py-24 mx-auto bg-amber-100 mt-10">
           <div className="mx-auto flex flex-wrap space-x-20 justify-center">
-
           <Image  className="object-center rounded border border-gray-200" src={`${productSelected.product_image}`} alt="" width={400} height={400}/>
             <div className="text-center mt-10">
               <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{productSelected.product_title}</h1>
               <ProductRating id={productSelected.product_id} />
-              <p className="leading-relaxed">{productSelected.product_description}</p>
-              
+              <p className="leading-relaxed">{productSelected.product_description}</p>     
               <div className="flex">
                 <span className="title-font font-medium text-2xl text-gray-900">${productSelected.product_price}</span>
                 <button className="flex ml-auto text-white bg-amber-400 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Button</button>

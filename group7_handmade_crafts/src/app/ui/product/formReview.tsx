@@ -5,9 +5,6 @@ interface IdType{
   id: string
 }
 
-interface BuyerType{
-  buyerId: string
-}
 
 export default function FormReviews(id:IdType) {
 
@@ -15,12 +12,11 @@ export default function FormReviews(id:IdType) {
   //console.log(itemId.id);
 
   
-  
   return(
 
-    <div className="text-black">
+    
 
-      <form action={createReview} className="bg-white shadow rounded">
+      <form action={createReview} className="shadow rounded">
         <div className="min-h-screen md:px-20 pt-6">
           <div className=" bg-amber-200 rounded-md px-6 py-10 max-w-2xl mx-auto">
             <h1 className="text-center text-2xl font-bold mb-10">CREATE REVIEW</h1>
@@ -46,21 +42,25 @@ export default function FormReviews(id:IdType) {
               <div>
                 <label htmlFor="title" className="text-lx font-serif">Add Title:</label>
                 <input type="text" placeholder="title" id="title" name="title" className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md bg-white"/>
-                <input type="text" placeholder="name/nickname" id="reviewer" name="reviewer" className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md bg-white"/>
+                
                 <input type="hidden" name='id' value={itemId.id}/>
-                <input type="hidden" name='buyerId' value='6eb8ae1f-b044-41e2-8764-d6dcb6474df0'/>
+                
+              </div>
+              <div>
+                <label htmlFor="title" className="text-lx font-serif">Add Name/Nickname:</label>
+                <input type="text" placeholder="name/nickname" id="reviewer" name="reviewer" className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md bg-white"/>
               </div>
               <div>
                 <label htmlFor="review" className="block mb-2 text-lg font-serif">Add Comment:</label>
                 <textarea id="review" name="review" placeholder="What did you like? What did you not like?.." className="w-full font-serif  p-4 text-gray-600 bg-white outline-none rounded-md"></textarea>
               </div>
-              <button type="submit" className=" px-6 py-2 mx-auto block rounded-md text-lg font-semibold text-indigo-100 bg-indigo-600">Send Review</button>
+              <button type="submit" className=" px-6 py-2 mx-auto block rounded-md text-lg font-semibold text-white bg-amber-400">Send Review</button>
             </div>
           </div>
         </div>
       </form>
     
-    </div>
+    
   
   
     )

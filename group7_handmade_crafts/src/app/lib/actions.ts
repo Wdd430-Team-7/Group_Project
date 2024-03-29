@@ -3,8 +3,8 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-
 import { IdentificationIcon } from '@heroicons/react/24/outline';
+
 
 const FormSchema = z.object({
   rating: z.coerce.number(),
@@ -21,26 +21,28 @@ export async function createReview(formData:FormData){
     rating: formData.get('rating'),
     title: formData.get('title'),
     review: formData.get('review'),
-    reviewer: formData.get('buyerId'),
+    reviewer: formData.get('reviewer'),
     id: formData.get('id'),
   });
 
-  
+
   
   try{
     await sql `INSERT INTO handcrafted.rating (rating_title, rating_review_text, rating_value, rating_reviewer, product_id)
      VALUES (${title}, ${review}, ${rating}, ${reviewer}, ${id})`;
-
+    
     console.log("success!!!")
+    //redirect('/product/all');
 
-  }catch{
-    console.log("error")
+  }catch(error){
+    console.error(error)
   }
 
-
-
-
-  console.log(rating, title, review, buyer, id);
-  revalidatePath('/product/details');
+  
+  revalidatePath(`/product/details/${id}`);
+  revalidatePath(`/product/all`);
+  revalidatePath(`/`);
   redirect('/product/all');
+  
+
 }

@@ -68,7 +68,7 @@ export async function fetchProductById(id: string) {
 
 export async function fetchProductsByCategory(category_id: number) {
     try {
-        const data = await sql`SELECT * FROM handcrafted.product WHERE category_id = ${category_id}`;
+        const data = await sql`SELECT * FROM handcrafted.product p WHERE category_id = ${category_id}`;
         return data.rows;
     } catch(error) {
         throw new Error('Failed to fetch products by category.');
