@@ -45,9 +45,10 @@ export default function FormReviews(id:IdType) {
             
               <div>
                 <label htmlFor="title" className="text-lx font-serif">Add Title:</label>
-                <input type="text" placeholder="title" id="title" name="title" className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md bg-white" />
+                <input type="text" placeholder="title" id="title" name="title" className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md bg-white"/>
+                <input type="text" placeholder="name/nickname" id="reviewer" name="reviewer" className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md bg-white"/>
                 <input type="hidden" name='id' value={itemId.id}/>
-                <input type="hidden" name='buyerId' value='1aa97dfd-5aa0-4f80-afce-8cef34880226'/>
+                <input type="hidden" name='buyerId' value='6eb8ae1f-b044-41e2-8764-d6dcb6474df0'/>
               </div>
               <div>
                 <label htmlFor="review" className="block mb-2 text-lg font-serif">Add Comment:</label>

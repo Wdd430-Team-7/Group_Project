@@ -3,6 +3,7 @@ import { StarIcon as StarSolid } from "@heroicons/react/16/solid";
 import LikeButton from "../like-button";
 import React from "react";
 import Rating from "../rating";
+import StarsRatingbyReview from "@/app/ui/product/starsbyReview"
 
 
 interface ProductRating {
@@ -10,13 +11,9 @@ interface ProductRating {
   rating_title: string;
   rating_review_text: string;
   rating_value: number;
-  rating_reviewer: string;
   product_id: string;
-  product_title: string;
-  artist_id: string;
-  account_firstname: string;
-  account_lastname: string;
-  account_image: string;
+  rating_timestamp: string;
+  rating_reviewer: string;
 }
 
 interface RatingProps{
@@ -30,19 +27,26 @@ const RatingItem: React.FC<RatingProps> =({ ratings }) => {
     <>
       {ratings.map((item:ProductRating) => {
        
-        const artist_id = item.artist_id;
-        const product_id = item.product_id;
-        const product_link = `/product/${product_id}`;
-        const artist = item.account_firstname + " " + item.account_lastname;
-        const artist_link = `/artist/${artist_id}`;
+        const rating_id = item.rating_id  
+        const rating_title = item.rating_title
+        const rating_review_text = item.rating_review_text
+        const rating_value = item.rating_value
+        const rating_reviewer = item.rating_reviewer
+        const rating_timestamp = item.rating_timestamp
+        const product_id = item.product_id; 
+        //const artist_link = `/artist/${artist_id}`;
 
         return (
           <div key={item.rating_id} className="m-3 p-2 bg-white">
-            <a href={product_link}>
-              <p className="font-bold text-xl hover:underline">{item.product_title}</p>
-            </a>
+            
+            <p className="font-bold text-xl hover:underline">{rating_title}</p>
+            
             <div className="flex flex-row justify-between font-bold">
-              <p>{item.rating_title}</p>
+            {rating_reviewer === null ? (
+                <p>No author information</p>
+            ) : (
+              <p>{rating_reviewer}</p>
+            )}
               <div className="flex flex-row">
                 {/* {[...Array(solidStars)].map((star) => {
                   return <StarSolid className="w-5 h-5 text-amber-500" />;
@@ -50,10 +54,11 @@ const RatingItem: React.FC<RatingProps> =({ ratings }) => {
                 {[...Array(emptyStars)].map((star) => {
                   return <StarOutline className="w-5 h-5 text-amber-500" />;
                 })} */}
-                <p className="w-5 h-5 text-amber-500">{item.rating_value} stars</p>
+                <StarsRatingbyReview rating={rating_value} />
               </div>
             </div>
-            <p className="flex flex-grow">{item.rating_review_text}</p>
+            <p className="flex flex-grow">{rating_review_text}</p>
+            <p className="text-gray-400">{rating_timestamp}</p>
             <LikeButton />
           </div>
         );

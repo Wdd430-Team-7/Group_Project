@@ -8,29 +8,29 @@ import { QueryResultRow } from "pg";
 import Link from "next/link";
 import { StringValidation } from "zod";
 
+
 export default async function ProductDetail({params}:{
   params:{id: string, item:string}}){
 
 
   const {id, item} = params;
-  console.log(id, item)
 
   const productSelected = await fetchProductById(id);
+ 
 
+  //This is shows the rating data from 'productSelected'
   const ratingsProductRaw = await fetchRatingsByProduct(id);
-  
+  console.log(ratingsProductRaw);
+  console.log(id);
+ 
   interface ProductRating {
     rating_id: string;
     rating_title: string;
     rating_review_text: string;
     rating_value: number;
-    rating_reviewer: string;
     product_id: string;
-    product_title: string;
-    artist_id: string;
-    account_firstname: string;
-    account_lastname: string;
-    account_image: string;
+    rating_timestamp: string;
+    rating_reviewer: string;
   }
 
   interface RatingProps{
@@ -41,14 +41,10 @@ export default async function ProductDetail({params}:{
     rating_id: row.rating_id as string,
     rating_title: row.rating_title as string,
     rating_review_text: row.rating_review_text as string,
-    rating_value: parseInt(row.rating_value as string, 10), 
-    rating_reviewer: row.rating_reviewer as string,
+    rating_value: parseInt(row.rating_value as string, 10),
     product_id: row.product_id as string,
-    product_title: row.product_title as string,
-    artist_id: row.artist_id as string,
-    account_firstname: row.account_firstname as string,
-    account_lastname: row.account_lastname as string,
-    account_image: row.account_image as string
+    rating_timestamp: row.rating_timestamp as string,
+    rating_reviewer: row.rating_reviewer as string,
   }));
 
   return(
@@ -77,17 +73,16 @@ export default async function ProductDetail({params}:{
         <div className=" flex flex-col container px-5 py-5 mx-auto bg-white mt-10">
                     <h2 className="text-center text-gray-900 text-2xl title-font font-medium mb-1">write a review about this product</h2>
                     
-                    <p className="text-center">Share your opinion with other artisans</p>
+                    <p className="text-center">Share your opinion with others</p>
                     <Link href={`/product/details/${productSelected.product_id}/reviews/${productSelected.artist_id}`} className="mr-auto ml-auto text-white bg-gray-400 border-0 py-2 px-6 focus:outline-none hover:bg-amber-400 rounded">write your opinion</Link>
                     
         </div>
         
       
         
-        <div className="flex flex-col container px-5 py-24 mx-auto bg-amber-100 mt-10">
-    
-              
-                <RatingItem ratings={ratingsProduct} />
+        <div className="flex flex-col container px-5 py-20 mx-auto bg-amber-100 mt-10">
+          <h1 className="text-center text-xl font-bold">Reviews</h1>
+          <RatingItem ratings={ratingsProduct} />
                    
         </div>
         
@@ -101,3 +96,6 @@ export default async function ProductDetail({params}:{
 
 </>  
   )}
+
+
+
