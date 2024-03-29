@@ -21,7 +21,7 @@ export default async function SearchPage({
 
   return (
     <>
-      <Header />
+      
       <h2 className="text-2xl text-center m-4">
         Search over thousands of handcrafted products
       </h2>

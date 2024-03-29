@@ -15,7 +15,7 @@ export default async function Product(){
   // console.log(products);
 
   return (<>
-          <Header/>
+          
           
                 <div className={`${lato.className} flex flex-wrap text-black bg-white min-h-screen text-3xl place-content-center gap-4 py-10`}>
                 {products.map((product) => (
@@ -44,9 +44,9 @@ export default async function Product(){
                     ))}
                 </div>
             
-            <footer className="w-full bg-amber-400 p-4 text-center">
-              <p>Footer</p>
-            </footer>
+            
+            
+            
           
   
   </>)
