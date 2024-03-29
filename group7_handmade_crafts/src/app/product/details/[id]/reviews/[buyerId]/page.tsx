@@ -27,13 +27,7 @@ export default async function AddReviews({params,}:{
     <div className="text-black bg-white">
       <ProductToReview product = {productSelected}/>
       <FormReviews id={id} />
-    </div>
-      
-    <footer className="w-full bg-amber-400 p-4 text-center">
-            <p>Footer</p>
-    </footer>
-
-
+      </div>
 
 </>  
   )}

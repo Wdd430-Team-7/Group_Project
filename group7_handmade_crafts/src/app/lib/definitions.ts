@@ -8,6 +8,9 @@ export type Account = {
     account_password: string;
     account_image: string;
     account_description: string;
+    account_bio: string;
+    account_age: number;
+    account_imageUrl: string;
 };
 
 export type Category = {
