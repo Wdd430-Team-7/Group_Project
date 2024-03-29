@@ -33,7 +33,7 @@ export default async function ArtistDetail({
           className={styles.image}
         />
         <p className={styles.bio}>Bio: {artist.account_description}</p>
-        <p className={styles.age}>Age: {artist.age}</p>
+        {/* <p className={styles.age}>Age: {artist.age}</p> */}
         {products.map((product) => (
           <div key={product.product_id} className={styles.product}>
             <h2 className={styles.productTitle}>{product.product_title}</h2>
