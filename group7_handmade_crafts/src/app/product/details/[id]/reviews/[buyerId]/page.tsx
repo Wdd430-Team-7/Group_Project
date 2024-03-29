@@ -5,37 +5,25 @@ import ProductRating from "@/app/ui/product/average-rating";
 import FormReviews from "@/app/ui/product/formReview";
 import { fetchAccounts } from "@/app/lib/online-data";
 
-
-
-
-
-export default async function AddReviews({params,}:{
-  params:{id: string, buyer: string}}){
-
-  
-
-  const {id, buyer} = params;
+export default async function AddReviews({
+  params,
+}: {
+  params: { id: string; buyer: string };
+}) {
+  const { id, buyer } = params;
   //const name = params.item
-  
 
   //const productSelected = await fetchProductById(id);
 
   //const accounts = await fetchAccounts();
   //console.log(accounts);
-  console.log(buyer)
+  console.log(buyer);
 
-  return(
+  return (
     <>
-    
-    <Header/>
-    
-    <div><FormReviews id={id} /></div>
-      
-    <footer className="w-full bg-amber-400 p-4 text-center">
-            <p>Footer</p>
-    </footer>
-
-
-
-</>  
-  )}
+      <div>
+        <FormReviews id={id} />
+      </div>
+    </>
+  );
+}

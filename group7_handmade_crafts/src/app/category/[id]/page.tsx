@@ -10,7 +10,6 @@ export default async function Page({ params }: { params: { id: number } }) {
 
   return (
     <>
-      <Header />
       <div
         className={`${lato.className} flex flex-col items-center text-black min-h-screen`}
       >

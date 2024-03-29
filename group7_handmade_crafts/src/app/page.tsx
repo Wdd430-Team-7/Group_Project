@@ -14,8 +14,7 @@ export default async function Home() {
   const categories = await fetchCategories();
   return (
     <>
-      <Header />
-      <main className="bg-white min-h-screen flex flex-col text-black">
+      <div className="bg-white min-h-screen flex flex-col text-black">
         <div className="flex-col justify-center p-4 m-4 md:w-4/5 self-center">
           <div className="flex w-full items-center justify-center">
             <h1 className={`${lato.className} text-2xl text-black`}>
@@ -43,10 +42,7 @@ export default async function Home() {
             <FeaturedArtists />
           </div>
         </div>
-      </main>
-      <footer className="w-full bg-amber-400 p-4 text-center">
-        <p className="text-black">Footer</p>
-      </footer>
+      </div>
     </>
   );
 }
