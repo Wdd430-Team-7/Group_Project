@@ -1,3 +1,5 @@
+import { QueryResultRow } from "pg";
+
 export type Account = {
     account_id: string;
     account_firstname: string;
@@ -18,6 +20,7 @@ export type Category = {
 };
 
 export type Product = {
+    map(arg0: (row: QueryResultRow) => { product_id: string; row: QueryResultRow; "": string; rating_review_text: string; rating_value: number; rating_timestamp: string; rating_reviewer: string; }): Product;
     product_id: string,
     product_title: string,
     product_description: string,
