@@ -18,7 +18,7 @@ export default async function Rating() {
         const artist_id = item.account_id;
 
         const product_name = item.product_title;
-        const product_link = `/product/${product_id}`;
+        const product_link = `/product/details/${product_id}`;
 
         const artist = item.account_firstname + " " + item.account_lastname;
         const artist_link = `/artist/${artist_id}`;
