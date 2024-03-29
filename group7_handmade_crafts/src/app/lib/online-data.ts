@@ -1,5 +1,5 @@
 import { sql } from "@vercel/postgres";
-import { Account, Category, Product, Rating, Story, ProductsTable } from "./definitions";
+import { Account, Category, Product, ProductsTable } from "./definitions";
 
 export async function fetchAccounts() {
     try {
@@ -15,7 +15,7 @@ export async function fetchAccountById(id: string) {
         const data = await sql<Account>`SELECT * FROM handcrafted.account WHERE account_id = ${id}`;
         return data.rows[0];
     } catch(error) {
-        throw new Error('Failed to fetch user data.');
+        throw new Error(`Failed to fetch user data. ${error}`);
     }
 }
 
@@ -63,6 +63,15 @@ export async function fetchProductById(id: string) {
         return data.rows[0];
     } catch (error) {
         throw new Error('Failed to fetch product by id.');
+    }
+}
+
+export async function fetchProductByArtist(artist_id: string) {
+    try {
+        const data = await sql<Product>`SELECT * FROM handcrafted.product WHERE artist_id = ${artist_id}`;
+        return data.rows;
+    } catch(error) {
+        throw new Error('Failed to fetch products by artist.');
     }
 }
 
