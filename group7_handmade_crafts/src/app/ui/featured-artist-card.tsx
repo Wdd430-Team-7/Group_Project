@@ -14,27 +14,33 @@ export default async function FeaturedArtistCard() {
         const id = artist.account_id;
 
         return (
-          <Link
-            key={id}
-            href={`/artist/${id}`}
-            className="flex flex-row gap-2 p-4 mt-4 bg-amber-100 rounded-md md:rounded-full hover:bg-amber-200 text-black"
-          >
+          <div key={id} className="gap-2 p-4 mt-4 rounded-md">
             <Image
               src={image}
-              width={100}
-              height={100}
+              width={70}
+              height={70}
               alt={`${firstName} ${lastName}`}
-              style={{objectFit: "cover"}}
-              className="rounded-full"
+              style={{ objectFit: "cover" }}
+              className="rounded-full float-left mr-2"
             />
-            <div className="flex flex-col items-begin">
-            <p className="text-500 font-bold">
-              {firstName} {lastName}
-            </p>
-            <p className="text-black">{description}</p>
 
+            <div className="">
+              <Link href={`/artist/${id}`}>
+                <p className="text-amber-700 dark:text-amber-500 font-bold underline md:no-underline hover:underline">
+                  {firstName} {lastName}
+                </p>
+              </Link>
+              <p className="text-wrap">
+                {description.slice(0, 140)}...{" "}
+                <Link
+                  href={`artist/${id}`}
+                  className="text-amber-700 dark:text-amber-500 underline md:no-underline hover:underline"
+                >
+                  see more
+                </Link>
+              </p>
             </div>
-          </Link>
+          </div>
         );
       })}
     </>

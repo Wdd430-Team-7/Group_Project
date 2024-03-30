@@ -12,7 +12,7 @@ export default async function Page({ params }: { params: { id: number } }) {
     <>
       
       <div
-        className={`${lato.className} flex flex-col items-center text-black min-h-screen`}
+        className={`${lato.className} flex flex-col items-center min-h-screen`}
       >
         <h2 className={`${patrick_hand.className} my-4 text-3xl`}>
           {category_name}

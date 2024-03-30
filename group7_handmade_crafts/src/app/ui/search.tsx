@@ -53,7 +53,7 @@ export default function SearchBar({
         name="category_id"
         id="category_id"
         defaultValue={searchParams.get("category")?.toString()}
-        className={`${inter.className} absolute right-3 self-center bg-white text-right w-16 md:w-auto`}
+        className={`${inter.className} absolute right-3 self-center bg-white text-black text-right w-16 md:w-auto`}
         onChange={(e) => handleSearch(query, Number(e.target.value))}
       >
         <option value="0">Any</option>
