@@ -16,24 +16,6 @@ export default function Reviews() {
         review_text="This is the best I have seen."
         product_id="234141-123123-123123"
       />
-      <ReviewCard
-        value={4}
-        title="Awesome product!"
-        review_text="This is the best I have seen."
-        product_id="234141-123123-123123"
-      />
-      <ReviewCard
-        value={4}
-        title="Awesome product!"
-        review_text="This is the best I have seen."
-        product_id="234141-123123-123123"
-      />
-      <ReviewCard
-        value={4}
-        title="Awesome product!"
-        review_text="This is the best I have seen."
-        product_id="234141-123123-123123"
-      />
     </div>
   );
 }

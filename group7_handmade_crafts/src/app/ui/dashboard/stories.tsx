@@ -1,16 +1,24 @@
 import Story from "./story";
 import Link from "next/link";
+import { fetchStoriesById } from "@/app/lib/dashboard-data";
 
-export default function Stories() {
+
+export default async function Stories({ id } : { id: string }) {
+    const stories = await fetchStoriesById(id);
     return (
-        <div className="flex flex-col items-center rounded-md p-4 gap-2 w-full">
-            <h3 className="font-bold text-center bg-amber-500 p-2 text-black rounded-md mb-4 w-full">Latest Stories</h3>
-            <Story text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid excepturi cumque assumenda dolorem nulla nobis maxime recusandae fuga, iure, quo non explicabo quisquam ipsum. Officia nihil pariatur iure. Et, iure." date="2024-02-02" />
-            <Story text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid excepturi cumque assumenda dolorem nulla nobis maxime recusandae fuga, iure, quo non explicabo quisquam ipsum. Officia nihil pariatur iure. Et, iure." date="2024-03-03" />
-            <Story text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid excepturi cumque assumenda dolorem nulla nobis maxime recusandae fuga, iure, quo non explicabo quisquam ipsum. Officia nihil pariatur iure. Et, iure." date="2024-03-03" />
-            <Story text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid excepturi cumque assumenda dolorem nulla nobis maxime recusandae fuga, iure, quo non explicabo quisquam ipsum. Officia nihil pariatur iure. Et, iure." date="2024-03-03" />
-            <Story text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid excepturi cumque assumenda dolorem nulla nobis maxime recusandae fuga, iure, quo non explicabo quisquam ipsum. Officia nihil pariatur iure. Et, iure." date="2024-03-03" />
-        </div>
-        
+        <div className="flex flex-col rounded-md p-4 gap-2 w-full">
+            <h3 className="font-bold text-left p-2 dark:text-amber-500 rounded-md mb-4">LATEST STORIES</h3>
+            {
+                stories.map((story) => {
+                    const text = story.story_content;
+                    const date = story.story_date.toString().slice(0,15);
+                    const story_id = story.story_id;
+                    return (
+                        <Story key={story_id} text={text} date={date}/>
+                    );
+                })
+            }
+            <a href="/dashboard/stories" className="px-4 py-2 rounded-md bg-amber-500 text-black hover:bg-amber-400 self-center">Manage Stories</a>
+        </div>       
     );
 }

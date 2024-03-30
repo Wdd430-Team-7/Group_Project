@@ -20,7 +20,7 @@ export default async function Header() {
   return (
     <>
       <header className="flex flex-col relative">
-        <div className="flex flex-row p-4 items-center justify-between bg-amber-400 md:bg-white md:items-center">
+        <div className="flex flex-row p-4 items-center justify-between md:items-center">
           {/* Site name */}
           <Link
             href="/"
@@ -34,7 +34,7 @@ export default async function Header() {
               className="hidden md:block bg-amber-400 rounded-lg hover:bg-amber-200"
             />
             <h1
-              className={`${patrick_hand.className} text-2xl md:text-6xl text-black`}
+              className={`${patrick_hand.className} text-2xl md:text-6xl dark:text-amber-400`}
             >
               Handcrafted Haven
             </h1>
@@ -42,7 +42,7 @@ export default async function Header() {
           <SignIn />
         </div>
         <div
-          className={`flex flex-row flex-wrap justify-center bg-amber-400 md:bg-white gap-2 p-4 text-black`}
+          className={`flex flex-row flex-wrap justify-center gap-2 p-4`}
         >
           <Category categories={categoriesList02} />
         </div>
