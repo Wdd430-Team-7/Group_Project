@@ -1,23 +1,23 @@
 // components/sellers/ProductForm.tsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const ProductForm: React.FC = () => {
-  const [productName, setProductName] = useState('');
-  const [productDescription, setProductDescription] = useState('');
-  const [productPrice, setProductPrice] = useState('');
+  const [productName, setProductName] = useState("");
+  const [productDescription, setProductDescription] = useState("");
+  const [productPrice, setProductPrice] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Logic to handle form submission (e.g., submit product details)
-    console.log('Product submitted:', {
+    console.log("Product submitted:", {
       name: productName,
       description: productDescription,
       price: productPrice,
     });
     // Reset form fields after submission
-    setProductName('');
-    setProductDescription('');
-    setProductPrice('');
+    setProductName("");
+    setProductDescription("");
+    setProductPrice("");
   };
 
   return (

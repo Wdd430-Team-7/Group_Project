@@ -1,8 +1,7 @@
 // pages/_app.tsx
-import React from 'react';
-import { AppProps } from 'next/app';
-import { AuthProvider } from '../app/contexts/AuthContext';
-import Link from 'next/link';
+import { AppProps } from "next/app";
+import Link from "next/link";
+import { AuthProvider } from "../app/contexts/AuthContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

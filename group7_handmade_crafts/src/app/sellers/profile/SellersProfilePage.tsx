@@ -1,6 +1,6 @@
 // pages/sellers/profile/SellersProfilePage.tsx
-import React from 'react';
-import ProductForm from '../../../components/sellers/ProductForm';
+import React from "react";
+import ProductForm from "../../../components/sellers/ProductForm";
 
 const SellersProfilePage: React.FC = () => {
   return (
