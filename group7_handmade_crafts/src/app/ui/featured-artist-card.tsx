@@ -30,7 +30,7 @@ export default async function FeaturedArtistCard() {
                   {firstName} {lastName}
                 </p>
               </Link>
-              <p className="text-wrap">{description}</p>
+              <p className="text-wrap">{description.slice(0,140)}...</p>
             </div>
           </div>
         );
