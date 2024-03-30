@@ -43,7 +43,7 @@ export default function HomeSearch({
       </label>
       <input
         type="text"
-        className="peer block w-full rounded-md border border-yellow-500 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 bg-white"
+        className="peer block w-full rounded-md border border-yellow-500 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 bg-white text-black"
         placeholder={placeholder}
         id="search"
         value={query}
@@ -57,7 +57,7 @@ export default function HomeSearch({
         name="category_id"
         id="category_id"
         defaultValue={searchParams.get("category")?.toString()}
-        className={`${inter.className} absolute right-3 self-center bg-white text-black text-right w-16 md:w-auto`}
+        className={`${inter.className} absolute right-3 self-center text-right w-16 md:w-auto bg-white text-black`}
         onChange={(e) => setCategory(e.target.value)}
       >
         <option value="0">Any</option>

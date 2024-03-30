@@ -27,9 +27,9 @@ const Category: React.FC<CategoryProps> = ({ categories }) => {
       <Link key={category.category_id}
       href={`/category/${category.category_id}`}
       className={clsx(
-        "bg-white px-4 py-2 rounded-md hover:bg-amber-200 text-black",
+        "px-4 py-2 rounded-md hover:bg-amber-200 bg-amber-400 md:bg-transparent hover:text-black",
         {
-          "bg-sky-100 text-blue-600": pathname === `/category/${category.category_id}`,
+          "text-green-600": pathname === `/category/${category.category_id}`,
         },
       )}
       >
