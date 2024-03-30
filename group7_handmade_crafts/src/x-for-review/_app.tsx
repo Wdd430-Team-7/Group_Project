@@ -1,11 +1,11 @@
 // pages/_app.tsx
 import { AppProps } from "next/app";
 import Link from "next/link";
-import { AuthProvider } from "../app/contexts/AuthContext";
+// import { AuthProvider } from "../app/contexts/AuthContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <AuthProvider>
+    // <AuthProvider>
       <div>
         <nav>
           <Link href="/">
@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </nav>
         <Component {...pageProps} />
       </div>
-    </AuthProvider>
+    // </AuthProvider>
   );
 }
 
