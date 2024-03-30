@@ -30,7 +30,15 @@ export default async function FeaturedArtistCard() {
                   {firstName} {lastName}
                 </p>
               </Link>
-              <p className="text-wrap">{description.slice(0,140)}...</p>
+              <p className="text-wrap">
+                {description.slice(0, 140)}...{" "}
+                <Link
+                  href={`artist/${id}`}
+                  className="text-amber-700 dark:text-amber-500 underline md:no-underline hover:underline"
+                >
+                  see more
+                </Link>
+              </p>
             </div>
           </div>
         );
