@@ -10,7 +10,7 @@ export default function ReviewCard({
   product_id: string;
 }) {
     return (
-        <div className="bg-white p-2 border-2 shadow-md">
+        <div className="border-t-2 border-amber-500 p-2 shadow-md">
             <p className="text-amber-700 font-bold">{value} stars</p>
             <p className="font-bold">{title}</p>
             <p>{review_text}</p>

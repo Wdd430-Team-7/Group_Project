@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default async function Page() {
   return (
     <div>
-      <h1 className="mb-4 text-xl md:text-2xl text-center">Dashboard</h1>
+      <h2 className="mb-4 text-xl md:text-2xl dark:text-amber-500 font-bold text-center">{`Seller's Dashboard`}</h2>
       <div className="flex flex-col items-center gap-4">
         <ArtistCard />
         <Stories />
