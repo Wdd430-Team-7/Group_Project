@@ -44,7 +44,7 @@ export default async function ProductCard({ id }: { id: string }) {
 
         <Link
           href={`../artist/${artist_id}`}
-          className="mb-4 mx-4 text-amber-700 dark:text-amber-500 hover:underline w-64"
+          className="mb-4 mx-4 text-amber-700 dark:text-amber-500 hover:underline"
         >
           {artist_name}
         </Link>
