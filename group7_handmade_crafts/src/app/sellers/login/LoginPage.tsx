@@ -1,6 +1,7 @@
 // pages/sellers/login/LoginPage.tsx
+'use client';
 import React, { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -11,7 +12,7 @@ const LoginPage: React.FC = () => {
     // Logic to validate login credentials
     if (username === 'MasterCraft' && password === '123abc') {
       // Redirect to Sellers Profile page upon successful login
-      router.push('/sellers/profile');
+      router.push('/dashboard/');
     } else {
       // Handle invalid credentials
       alert('Invalid username or password');
