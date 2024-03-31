@@ -84,6 +84,19 @@ export async function fetchProductsByCategory(category_id: number) {
     }
 }
 
+export async function fetchReviewByArtist(artist_id:string) {
+    try {
+        const data = await sql `SELECT r.rating_value, r.rating_title, r.rating_review_text, r.product_id 
+        FROM handcrafted.product p
+        INNER JOIN handcrafted.rating r
+        ON p.product_id = r.product_id
+        WHERE p.artist_id = ${artist_id}`;
+        return data.rows;
+    } catch(error) {
+        throw new Error('Failed to fetch all products.');
+    }
+}
+
 export async function fetchRecentRatings(limit: number) {
     try {
         // returns recent ratings by limit
@@ -101,7 +114,7 @@ export async function fetchRecentRatings(limit: number) {
 export async function fetchRatingsByProduct(product_id: string) {
     try {
         // returns rating title, text, rate value, reviewer account data by product_id
-        const data = await sql`SELECT r.rating_id, r.rating_title, r.rating_review_text, r.rating_value, r.product_id, r.rating_reviewer, to_char(r.rating_timestamp, 'DD Mon YYYY, HH12:MI AM') AS rating_timestamp FROM handcrafted.rating r INNER JOIN handcrafted.product p ON r.product_id = p.product_id WHERE r.product_id = ${product_id}`;
+        const data = await sql`SELECT r.rating_id, r.rating_title, r.rating_review_text, r.rating_value, r.product_id, r.rating_reviewer, to_char(r.rating_timestamp, 'DD Mon YYYY, HH12:MI AM') AS rating_timestamp FROM handcrafted.rating r INNER JOIN handcrafted.product p ON r.product_id = p.product_id WHERE r.product_id = ${product_id} ORDER BY r.rating_timestamp DESC LIMIT 5`;
         return data.rows;
     } catch(error) {
         throw new Error('Failed to fetch product ratings.');

@@ -1,3 +1,5 @@
+import StarsRatingbyReview from '@/app/ui/product/starsbyReview'
+
 export default function ReviewCard({
   value,
   title,
@@ -11,7 +13,7 @@ export default function ReviewCard({
 }) {
     return (
         <div className="border-t-2 border-amber-500 p-2 shadow-md">
-            <p className="text-amber-700 font-bold">{value} stars</p>
+            <StarsRatingbyReview rating={value}/>
             <p className="font-bold">{title}</p>
             <p>{review_text}</p>
             <p className="italic">Rating for: {product_id}</p>

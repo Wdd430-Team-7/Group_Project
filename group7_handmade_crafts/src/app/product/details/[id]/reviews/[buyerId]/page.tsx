@@ -22,7 +22,7 @@ export default async function AddReviews({params,}:{
   return(
     <>
     
-    <Header/>
+    
 
     <div className="text-black bg-white">
       <ProductToReview product = {productSelected}/>

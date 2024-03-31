@@ -79,7 +79,7 @@ export default async function ProductDetail({params}:{
       
         
         <div className="flex flex-col container px-5 py-20 mx-auto bg-amber-100 mt-10">
-          <h1 className="text-center text-xl font-bold">Reviews</h1>
+          <h1 className="text-center text-xl font-bold">Latest Reviews</h1>
           <RatingItem ratings={ratingsProduct} />
                    
         </div>
