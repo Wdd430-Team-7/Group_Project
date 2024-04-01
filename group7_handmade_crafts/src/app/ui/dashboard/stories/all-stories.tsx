@@ -1,10 +1,10 @@
 import Story from "./story";
 import Link from "next/link";
-import { fetchStoriesByIdLimited } from "@/app/lib/dashboard-data";
+import { fetchStoriesById } from "@/app/lib/dashboard-data";
 
 
-export default async function Stories({ id } : { id: string }) {
-    const stories = await fetchStoriesByIdLimited(id, 5);
+export default async function AllStories({ id } : { id: string }) {
+    const stories = await fetchStoriesById(id);
     return (
         <div className="flex flex-col rounded-md p-4 gap-2 w-full">
             {

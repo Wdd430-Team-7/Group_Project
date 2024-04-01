@@ -5,7 +5,6 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { IdentificationIcon } from '@heroicons/react/24/outline';
 
-
 const FormSchema = z.object({
   rating: z.coerce.number(),
   title: z.string(),
@@ -47,43 +46,60 @@ export async function createReview(formData:FormData){
 
 }
 
-const StoryFormSchema = z.object({
-  story_content: z.string().min(1),
+// stories
+
+const CreateStorySchema = z.object({
+  story_id: z.string(),
+  story_content: z.string()
+    .min(1, { message: 'Please write at least one character.'}),
+  story_date: z.date(),
   artist_id: z.string(),
 });
 
-export type State = {
-  errors?: {
-    story_content?: string[];
-    artist_id?: string[];
-  };
-  message?: string | null;
-};
+const CreateStory = CreateStorySchema.omit({ story_id: true, story_date: true });
 
-export async function createStory(prevState: State, formData: FormData) {
-  const validatedStoryFields = StoryFormSchema.safeParse({
-    story_content: formData.get('story_content'),
+export async function createStory(formData: FormData) {
+  // Validate form fields using Zod
+  // const validatedFields = CreateStorySchema.safeParse({
+  //   artist_id: formData.get('artist_id'),
+  //   story_content: formData.get('story_content'),
+  // });
+
+  // If form validation fails, return errors early. Otherwise, continue.
+  // if (!validatedFields.success) {
+  //     return {
+  //       errors: validatedFields.error.flatten().fieldErrors,
+  //       message: 'Missing Fields. Failed to Create Invoice.',
+  //     };
+  //   }
+
+  // prepare data for insertion into the database
+  // const { artist_id, story_content } = validatedFields.data;
+
+  // insert data into database
+
+  const { artist_id, story_content} = CreateStory.parse({ 
     artist_id: formData.get('artist_id'),
-});
+    story_content: formData.get('story_content')
+  });
 
-  if (!validatedStoryFields.success) {
-    return {
-      errors: validatedStoryFields.error.flatten().fieldErrors,
-      message: 'Missing fields. Failed to create story.',
-    };
-  }
+  await sql`
+    INSERT INTO handcrafted.story (artist_id, story_content)
+    VALUES (${artist_id}, ${story_content})
+  `;
 
-  const { story_content, artist_id } = validatedStoryFields.data;
-
-  try {
-    await sql`INSERT INTO handcrafted.story (story_content, artist_id) VALUES (${story_content}, ${artist_id})`;
-    // console.log(result); IT WORKS!
-  } catch (error) {
-    return {
-      message: 'Database error: Failed to create story.'
-    }
-  }
-
+  // try {
+  //     await sql`
+  //         INSERT INTO handcrafted.story (artist_id, story_content)
+  //         VALUES (${artist_id}, ${story_content})
+  //     `;    
+  // } catch (error) {
+  //     return {
+  //         message: 'Database Error: Failed to create story.',
+  //     };
+  // }
+  
   revalidatePath('/dashboard/stories');
+  revalidatePath('/dashboard/');
   redirect('/dashboard/stories');
 }
