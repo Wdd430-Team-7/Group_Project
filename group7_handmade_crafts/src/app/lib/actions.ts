@@ -46,3 +46,44 @@ export async function createReview(formData:FormData){
   
 
 }
+
+const StoryFormSchema = z.object({
+  story_content: z.string().min(1),
+  artist_id: z.string(),
+});
+
+export type State = {
+  errors?: {
+    story_content?: string[];
+    artist_id?: string[];
+  };
+  message?: string | null;
+};
+
+export async function createStory(prevState: State, formData: FormData) {
+  const validatedStoryFields = StoryFormSchema.safeParse({
+    story_content: formData.get('story_content'),
+    artist_id: formData.get('artist_id'),
+});
+
+  if (!validatedStoryFields.success) {
+    return {
+      errors: validatedStoryFields.error.flatten().fieldErrors,
+      message: 'Missing fields. Failed to create story.',
+    };
+  }
+
+  const { story_content, artist_id } = validatedStoryFields.data;
+
+  try {
+    await sql`INSERT INTO handcrafted.story (story_content, artist_id) VALUES (${story_content}, ${artist_id})`;
+    // console.log(result); IT WORKS!
+  } catch (error) {
+    return {
+      message: 'Database error: Failed to create story.'
+    }
+  }
+
+  revalidatePath('/dashboard/stories');
+  redirect('/dashboard/stories');
+}
