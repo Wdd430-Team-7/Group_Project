@@ -7,6 +7,7 @@ export type Account = {
     account_email: string;
     account_password: string;
     account_image: string;
+    account_authenticated: number;
     account_description: string;
     account_bio: string;
     account_age: number;
