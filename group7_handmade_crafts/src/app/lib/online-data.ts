@@ -33,7 +33,7 @@ export async function fetchCategories() {
 export async function fetchCategoryName(id: number) {
     try {
         const data = await sql`SELECT category_name FROM handcrafted.category WHERE category_id = ${id}`;
-        // revalidatePath(`/categories/[id]`, 'page');
+        revalidatePath(`/categories/[id]`, 'page');
         return data.rows[0];
     } catch(error) {
         throw new Error('Failed to fetch category name.');
