@@ -135,7 +135,7 @@ export async function calculateProductRating(product_id: string) {
 export async function fetchFeaturedArtistsLimited(limit: number) {
     try {
         // returns artist_id, artist_firstname, artist_lastname
-        const data = await sql<Account>`SELECT * FROM handcrafted.account WHERE account_authenticated = 1 ORDER BY account_id ASC LIMIT ${limit}`;
+        const data = await sql<Account>`SELECT * FROM handcrafted.account ORDER BY account_id ASC LIMIT ${limit}`;
         return data.rows;
     } catch(error) {
         throw new Error('Failed to fetch featured artists.');
