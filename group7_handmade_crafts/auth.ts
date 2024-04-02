@@ -3,12 +3,12 @@ import Credentials from 'next-auth/providers/credentials';
 import { authConfig } from './auth.config';
 import { z } from 'zod';
 import { sql } from '@vercel/postgres';
-import type { Account } from '@/app/lib/definitions';
+import type { User } from '@/app/lib/definitions';
 //import bcrypt from 'bcrypt';
  
-async function getUser(email: string): Promise<Account | undefined> {
+async function getUser(email: string): Promise<User | undefined> {
   try {
-    const user = await sql<Account>`SELECT * FROM handcrafted.account WHERE account_email=${email}`;
+    const user = await sql<User>`SELECT account_id, account_firstname, account_email, account_password FROM handcrafted.account WHERE account_email=${email}`;
     return user.rows[0];
   } catch (error) {
     console.error('Failed to fetch user:', error);
@@ -31,7 +31,8 @@ export const { auth, signIn, signOut } = NextAuth({
           console.log(user)
           if (!user) return null;
 
-          if (password === user.account_password && user.account_authenticated) return user;
+          if (password === user.account_password) return user;
+
         }
  
         console.log('Invalid credentials');

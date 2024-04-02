@@ -7,11 +7,8 @@ export type Account = {
     account_email: string;
     account_password: string;
     account_image: string;
-    account_authenticated: number;
     account_description: string;
-    account_bio: string;
-    account_age: number;
-    account_imageUrl: string;
+    account_authenticated: number;
 };
 
 export type Category = {
@@ -60,4 +57,11 @@ export type ProductsTable = {
     category_name: string,
     account_firstname: string,
     account_lastname: string,
+}
+
+export type User = {
+    id: string,
+    name: string,
+    email: string,
+    account_password: string
 }
