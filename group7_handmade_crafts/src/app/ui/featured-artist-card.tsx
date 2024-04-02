@@ -4,6 +4,7 @@ import Image from "next/image";
 
 export default async function FeaturedArtistCard() {
   const artists = await fetchFeaturedArtistsLimited(5);
+  console.log(artists);
   return (
     <>
       {artists.map((artist) => {
