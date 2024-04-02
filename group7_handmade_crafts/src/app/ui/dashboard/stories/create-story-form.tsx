@@ -1,4 +1,3 @@
-"use client";
 import { createStory } from "@/app/lib/actions";
 
 export default function CreateStoryForm({ artist_id }: { artist_id: string }) {

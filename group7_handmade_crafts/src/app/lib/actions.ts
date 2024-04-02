@@ -78,7 +78,7 @@ export async function createStory(formData: FormData) {
 
   // insert data into database
 
-  const { artist_id, story_content} = CreateStory.parse({ 
+  const { artist_id, story_content } = CreateStory.parse({ 
     artist_id: formData.get('artist_id'),
     story_content: formData.get('story_content')
   });
@@ -102,4 +102,62 @@ export async function createStory(formData: FormData) {
   revalidatePath('/dashboard/stories');
   revalidatePath('/dashboard/');
   redirect('/dashboard/stories');
+}
+
+const CreateProductSchema = z.object({
+  product_id: z.string(),
+  product_title: z.string().min(3),
+  product_description: z.string().min(3),
+  product_category: z.coerce.number(),
+  product_price: z.coerce.number(),
+  product_image: z.string(), // check what the default image url is in pgAdmin
+  artist_id: z.string(),
+});
+
+const CreateProduct = CreateProductSchema.omit({ product_id: true });
+
+export async function createProduct(formData: FormData) {
+  const { 
+    product_title, 
+    product_description, 
+    product_price,
+    product_category, 
+    product_image,
+    artist_id, 
+  } = CreateProduct.parse({
+    product_title: formData.get("product_title"),
+    product_description: formData.get("product_description"),
+    product_price: formData.get("product_price"),
+    product_category: formData.get("product_category"),
+    product_image: formData.get("product_image"),
+    artist_id: formData.get("artist_id"),
+  });
+
+  try {
+    await sql`
+    INSERT INTO handcrafted.product (
+      product_title,
+      product_description,
+      product_price,
+      product_image,
+      category_id,
+      artist_id
+    )
+    VALUES (
+      ${product_title},
+      ${product_description},
+      ${product_price},
+      ${product_image},
+      ${product_category},
+      ${artist_id}
+    )
+  `;
+  
+  } catch (error) {
+    console.error('Error inserting new product: ' + error)    
+  }
+  
+  revalidatePath('/dashboard/products');
+  revalidatePath(`/categories/[id]`, 'page')
+  redirect('/dashboard/products');
 }
