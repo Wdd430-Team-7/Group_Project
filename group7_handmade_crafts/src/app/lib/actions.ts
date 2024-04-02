@@ -108,6 +108,7 @@ const CreateProductSchema = z.object({
   product_id: z.string(),
   product_title: z.string().min(3),
   product_description: z.string().min(3),
+  product_category: z.coerce.number(),
   product_price: z.coerce.number(),
   product_image: z.string(), // check what the default image url is in pgAdmin
   artist_id: z.string(),
@@ -119,13 +120,15 @@ export async function createProduct(formData: FormData) {
   const { 
     product_title, 
     product_description, 
-    product_price, 
+    product_price,
+    product_category, 
     product_image,
     artist_id, 
   } = CreateProduct.parse({
     product_title: formData.get("product_title"),
     product_description: formData.get("product_description"),
     product_price: formData.get("product_price"),
+    product_category: formData.get("product_category"),
     product_image: formData.get("product_image"),
     artist_id: formData.get("artist_id"),
   });
@@ -145,7 +148,7 @@ export async function createProduct(formData: FormData) {
       ${product_description},
       ${product_price},
       ${product_image},
-      2,
+      ${product_category},
       ${artist_id}
     )
   `;
