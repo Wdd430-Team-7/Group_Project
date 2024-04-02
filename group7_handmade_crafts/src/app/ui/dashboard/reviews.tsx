@@ -1,21 +1,25 @@
 import ReviewCard from "./review-card";
+import { fetchReviewByArtist } from "@/app/lib/online-data";
 
-export default function Reviews() {
+
+export default async function Reviews() {
+  const reviewsByArtist = await fetchReviewByArtist('e4cf64e7-b569-4149-8897-df9980266cdd')
+  //console.log(reviewsByArtist);
+
   return (
-    <div className="flex flex-col rounded-md p-4 gap-2 w-full">
-      <h2 className="font-bold text-left p-2 dark:text-amber-500 rounded-md mb-4">RECENT REVIEWS</h2>
-      <ReviewCard
-        value={4}
-        title="Awesome product!"
-        review_text="This is the best I have seen."
-        product_id="234141-123123-123123"
-      />
-      <ReviewCard
-        value={4}
-        title="Awesome product!"
-        review_text="This is the best I have seen."
-        product_id="234141-123123-123123"
-      />
-    </div>
+        
+        <div className="w-full flex flex-col gap-2 rounded-md p-4">
+          <h2 className="font-bold text-center bg-amber-500 p-2 text-black rounded-md mb-4 w-full">Recent Reviews</h2>
+          {reviewsByArtist.map((review)=>(
+            <div key= {review.product_id}>
+              <ReviewCard
+              value={review.rating_value}
+              title={review.rating_title}
+              review_text={review.rating_review_text}
+              product_id={review.product_id} />
+            </div>
+            ))}
+        </div>
+     
   );
 }
