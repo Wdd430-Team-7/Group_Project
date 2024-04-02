@@ -1,7 +1,7 @@
-import LoginPage from "../../sellers/login/LoginPage";
+import LoginForm from "@/app/ui/login-form";
 
 export default function Page() {
     return (
-        <LoginPage />
+        <LoginForm />
     );
 }
