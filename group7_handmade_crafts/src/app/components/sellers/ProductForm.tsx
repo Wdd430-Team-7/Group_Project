@@ -1,56 +1,49 @@
 // components/sellers/ProductForm.tsx
-'use client'
-import React, { useState } from "react";
+import { createProduct } from "@/app/lib/actions";
 
-const ProductForm: React.FC = () => {
-  const [productName, setProductName] = useState("");
-  const [productDescription, setProductDescription] = useState("");
-  const [productPrice, setProductPrice] = useState("");
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Logic to handle form submission (e.g., submit product details)
-    console.log("Product submitted:", {
-      name: productName,
-      description: productDescription,
-      price: productPrice,
-    });
-    // Reset form fields after submission
-    setProductName("");
-    setProductDescription("");
-    setProductPrice("");
-  };
-
+export default function ProductForm({ artist_id }: { artist_id: string }) {
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form action={createProduct} className="space-y-4">
       <input
+        name="product_title"
+        id="product_title"
         className="w-full border rounded-md px-3 py-2"
         type="text"
-        placeholder="Product Name"
-        value={productName}
-        onChange={(e) => setProductName(e.target.value)}
+        placeholder="Product Title"
+        required
       />
       <textarea
+        name="product_description"
+        id="product_description"
         className="w-full border rounded-md px-3 py-2"
         placeholder="Product Description"
-        value={productDescription}
-        onChange={(e) => setProductDescription(e.target.value)}
+        required
       />
       <input
+        name="product_price"
+        id="product_price"
+        className="w-full border rounded-md px-3 py-2"
+        type="number"
+        step="0.01"
+        min="0.00"
+        max="9999999.99"
+        required
+      />
+      <input
+        name="product_image"
         className="w-full border rounded-md px-3 py-2"
         type="text"
-        placeholder="Product Price"
-        value={productPrice}
-        onChange={(e) => setProductPrice(e.target.value)}
+        placeholder="Product Image URL"
+        defaultValue={'/images/products/no_image.jpg'}
+        required
       />
       <button
         type="submit"
-        className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
+        className="w-full bg-amber-500 text-black py-2 rounded-md hover:bg-amber-600"
       >
-        Submit
+        Add Product
       </button>
+      <input type="hidden" name="artist_id" value={artist_id} />
     </form>
   );
 };
-
-export default ProductForm;
