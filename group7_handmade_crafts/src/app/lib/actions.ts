@@ -101,6 +101,7 @@ export async function createStory(formData: FormData) {
   
   revalidatePath('/dashboard/stories');
   revalidatePath('/dashboard/');
+  revalidatePath(`/artist/${artist_id}`, 'page');
   redirect('/dashboard/stories');
 }
 
@@ -157,7 +158,7 @@ export async function createProduct(formData: FormData) {
     console.error('Error inserting new product: ' + error)    
   }
   
-  revalidatePath('/dashboard/products');
-  revalidatePath(`/categories/[id]`, 'page')
+  revalidatePath('/dashboard/products', 'page');
+  revalidatePath(`/categories/${product_category}`, 'page')
   redirect('/dashboard/products');
 }

@@ -10,8 +10,10 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  // assuming Jane Smith Logs in
-  const account_id = '1aa97dfd-5aa0-4f80-afce-8cef34880226' //change this to whoever is logged in and authenticated
+  // Jane Smith
+  // const account_id = '1aa97dfd-5aa0-4f80-afce-8cef34880226'
+  //John Cenamics
+  const account_id = 'b222d544-c5aa-4558-b4a6-74cd8e088afd' 
   const account = await fetchAccountById(account_id);
   const name = account.account_firstname + " " + account.account_lastname;
   const description = account.account_description;
@@ -26,7 +28,7 @@ export default async function Page() {
         <Stories id={account_id}/>
         <a href="/dashboard/stories" className="px-4 py-2 rounded-md bg-amber-500 text-black hover:bg-amber-400 self-center">Manage Stories</a>
 
-        <Reviews />
+        <Reviews id={account_id}/>
       </div>
     </div>
   );

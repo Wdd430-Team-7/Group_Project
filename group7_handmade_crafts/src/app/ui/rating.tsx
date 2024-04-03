@@ -24,7 +24,7 @@ export default async function Rating() {
         const artist_link = `/artist/${artist_id}`;
 
         return (
-          <div key={rating_id} className="m-3 p-2 bg-white">
+          <div key={rating_id} className="border-l-2 border-amber-500 m-3 p-2">
             <a href={product_link}>
               <p className="font-bold text-xl hover:underline">{product_name}</p>
             </a>

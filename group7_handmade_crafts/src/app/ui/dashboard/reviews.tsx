@@ -2,8 +2,8 @@ import ReviewCard from "./review-card";
 import { fetchReviewByArtist } from "@/app/lib/online-data";
 
 
-export default async function Reviews() {
-  const reviewsByArtist = await fetchReviewByArtist('e4cf64e7-b569-4149-8897-df9980266cdd')
+export default async function Reviews({ id }: { id: string }) {
+  const reviewsByArtist = await fetchReviewByArtist(id)
   //console.log(reviewsByArtist);
 
   return (
