@@ -4,8 +4,8 @@ import Stories from "@/app/ui/dashboard/stories/stories";
 import AllStories from "@/app/ui/dashboard/stories/all-stories";
 
 export default function Page() {
-  // Jane smith
-  const artist_id = '1aa97dfd-5aa0-4f80-afce-8cef34880226'; // change this when auth is ready
+ 
+  const artist_id = 'b222d544-c5aa-4558-b4a6-74cd8e088afd'; // change this when auth is ready
   //John Cenamics
   // const artist_id = "b222d544-c5aa-4558-b4a6-74cd8e088afd";
   return (

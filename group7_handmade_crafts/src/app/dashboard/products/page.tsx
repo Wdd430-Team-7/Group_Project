@@ -4,7 +4,7 @@ import ArtistProducts from "@/app/ui/dashboard/products/artist-products";
 
 export default function Page() {
   //Jane Smith
-  const artist_id = "1aa97dfd-5aa0-4f80-afce-8cef34880226";
+  const artist_id = "b222d544-c5aa-4558-b4a6-74cd8e088afd";
   //John Cenamics
   // const artist_id = "b222d544-c5aa-4558-b4a6-74cd8e088afd";
 
