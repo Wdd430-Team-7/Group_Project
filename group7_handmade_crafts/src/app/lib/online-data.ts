@@ -88,7 +88,7 @@ export async function fetchProductsByCategory(category_id: number) {
 
 export async function fetchReviewByArtist(artist_id:string) {
     try {
-        const data = await sql `SELECT r.rating_value, r.rating_title, r.rating_review_text, r.product_id 
+        const data = await sql `SELECT r.rating_id, r.rating_value, r.rating_title, r.rating_review_text, r.product_id 
         FROM handcrafted.product p
         INNER JOIN handcrafted.rating r
         ON p.product_id = r.product_id
