@@ -61,7 +61,6 @@ export type ProductsTable = {
 
 export type User = {
     id: string,
-    name: string,
     email: string,
-    account_password: string
+    password: string
 }
