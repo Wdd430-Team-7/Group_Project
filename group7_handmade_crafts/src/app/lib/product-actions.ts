@@ -10,7 +10,7 @@ const FormSchema = z.object({
     product_description: z.string(),
     product_price: z.coerce.number(),
     product_image: z.string(),
-    category_id: z.number(),
+    category_id: z.string(),
 
 });
 
@@ -21,9 +21,9 @@ export type State = {
     errors?: {
         product_title?: string[];
         product_description?: string[];
-        product_price?: number[];
         product_image?: string[];
-        category_id?: number[];
+        category_id?: string[];
+        product_price?: string[];
     };
     message?: string | null;
   };
@@ -55,7 +55,7 @@ export async function updateProduct(id: string, prevState: State, formData: Form
         await sql`
             UPDATE handcrafted.product
             SET product_title = ${product_title}, product_description = ${product_description}, product_price = ${product_price}, product_image = ${product_image}, category_id = ${category_id}
-            WHERE id = ${id}
+            WHERE product_id = ${id}
         `;    
     } catch (error) {
         return {
