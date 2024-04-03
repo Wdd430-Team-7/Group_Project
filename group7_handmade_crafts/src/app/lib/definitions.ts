@@ -60,3 +60,20 @@ export type ProductsTable = {
     account_firstname: string,
     account_lastname: string,
 }
+
+export type CategoryField = {
+    category_id: number,
+    category_name: string,
+    category_icon: string,
+}
+
+export type ProductForm = {
+    product_id: string,
+    product_title: string,
+    product_description: string,
+    product_image: string,
+    product_price: number,
+    category_id: number,
+    artist_id: string,
+    product_date_created: Date,
+}
