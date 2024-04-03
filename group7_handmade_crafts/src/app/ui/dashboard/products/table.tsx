@@ -10,7 +10,7 @@ export default async function ProductsTable({
   const products = await fetchProductByArtist(artist_id);
 
   return (
-    <div className="mt-6 flow-root">
+    <div className="mt-6 flow-root text-black">
       <div className="inline-block min-w-full align-middle">
         <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
           <div className="md:hidden">
@@ -33,14 +33,12 @@ export default async function ProductsTable({
                     </div>
                     {/* <p className="text-sm text-gray-500">{invoice.email}</p> */}
                   </div>
-                  {/* <InvoiceStatus status={invoice.status} /> */}
                 </div>
                 <div className="flex w-full items-center justify-between pt-4">
                   <div>
                     <p className="text-xl font-medium">
                       ${product.product_price}
                     </p>
-                    {/* <p>{formatDateToLocal(invoice.date)}</p> */}
                   </div>
                   <div className="flex justify-end gap-2">
                     <UpdateProduct id={product.product_id} />
@@ -54,19 +52,10 @@ export default async function ProductsTable({
             <thead className="rounded-lg text-left text-sm font-normal">
               <tr>
                 <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
-                  Customer
+                  Product
                 </th>
                 <th scope="col" className="px-3 py-5 font-medium">
-                  Email
-                </th>
-                <th scope="col" className="px-3 py-5 font-medium">
-                  Amount
-                </th>
-                <th scope="col" className="px-3 py-5 font-medium">
-                  Date
-                </th>
-                <th scope="col" className="px-3 py-5 font-medium">
-                  Status
+                  Price
                 </th>
                 <th scope="col" className="relative py-3 pl-6 pr-3">
                   <span className="sr-only">Edit</span>
@@ -92,16 +81,7 @@ export default async function ProductsTable({
                     </div>
                   </td>
                   <td className="whitespace-nowrap px-3 py-3">
-                    {/* {invoice.email} */}
-                  </td>
-                  <td className="whitespace-nowrap px-3 py-3">
                     ${product.product_price}
-                  </td>
-                  <td className="whitespace-nowrap px-3 py-3">
-                    {/* {formatDateToLocal(invoice.date)} */}
-                  </td>
-                  <td className="whitespace-nowrap px-3 py-3">
-                    {/* <InvoiceStatus status={invoice.status} /> */}
                   </td>
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex justify-end gap-3">
