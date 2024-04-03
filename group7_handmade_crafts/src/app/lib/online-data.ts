@@ -269,7 +269,7 @@ export async function fetchFilteredProductsByCategory(
     }
   }
 
-export async function fetchAccountByEmail(email: string) {
+export async function fetchAccountByEmail(email: string | null | undefined) {
     try {
         const data = await sql`SELECT * FROM handcrafted.account WHERE account_email = ${email}`;
         return data.rows[0]
