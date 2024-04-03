@@ -25,7 +25,8 @@ export default async function ProductCard({ id }: { id: string }) {
             width={320}
             height={320}
             alt={`Image for ${product_title}`}
-            className="border-b-[3px] rounded-tl-md rounded-tr-md border-amber-500"
+            style={{ objectFit: "cover"}}
+            className="aspect-square border-b-[3px] rounded-tl-md rounded-tr-md border-amber-500"
           />
           <div className="mx-4">
             <p className="text-2xl font-bold my-2">

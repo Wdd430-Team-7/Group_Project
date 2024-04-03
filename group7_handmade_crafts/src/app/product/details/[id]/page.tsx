@@ -20,8 +20,8 @@ export default async function ProductDetail({params}:{
 
   //This is shows the rating data from 'productSelected'
   const ratingsProductRaw = await fetchRatingsByProduct(id);
-  console.log(ratingsProductRaw);
-  console.log(id);
+  // console.log(ratingsProductRaw);
+  // console.log(id);
  
   interface ProductRating {
     rating_id: string;

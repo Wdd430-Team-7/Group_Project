@@ -16,7 +16,7 @@ export default async function AddReviews({params,}:{
   
 
   const productSelected = await fetchProductById(id);
-  console.log(productSelected);
+  // console.log(productSelected);
 
  
   return(
