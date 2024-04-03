@@ -37,7 +37,7 @@ export default function ProductForm({ artist_id }: { artist_id: string }) {
        required>
         <option value="1">Artisanal</option>
         <option value="2">Textiles and Fabrics</option>
-        <option value="3">Jewerly and Accessories</option>
+        <option value="3">Jewelry and Accessories</option>
         <option value="4">Home Decor and Furnishings</option>
         <option value="5">Personal Care</option>
         <option value="6">Stationary and Paper Goods</option>
