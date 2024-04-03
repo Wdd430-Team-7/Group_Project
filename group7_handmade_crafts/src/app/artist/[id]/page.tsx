@@ -1,4 +1,4 @@
-import { fetchAccountById, fetchProductByArtist, fetchRecentStoryByArtist } from "@/app/lib/online-data"; // Import the fetchAccountById function
+import { fetchAccountById, fetchProductByArtist } from "@/app/lib/online-data"; // Import the fetchAccountById function
 import Image from "next/image"; // Import Image from Next.js
 import styles from ".///artistDetail.module.css";
 import { fetchStoriesById } from "@/app/lib/dashboard-data";
