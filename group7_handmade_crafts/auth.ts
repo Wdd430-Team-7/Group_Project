@@ -1,3 +1,6 @@
+
+import { getSession } from 'next-auth/react';
+import { Session } from 'inspector';
 import NextAuth from "next-auth";
 import { authConfig } from "./auth.config";
 import Credentials from 'next-auth/providers/credentials';
@@ -14,7 +17,7 @@ async function getUser(email: string): Promise<User | undefined> {
         throw new Error('Failed to fetch user.');
     }
 }
-export const { auth, signIn, signOut } = NextAuth({
+export const { auth, signIn, signOut} = NextAuth({
     ...authConfig,
     providers: [
         Credentials({
@@ -27,6 +30,8 @@ export const { auth, signIn, signOut } = NextAuth({
                     const { email, password } = parsedCredentials.data;
                     const user = await getUser(email);
                     if (!user) return null;
+
+                    
 
                     if (password == user.password) return user;
                 }

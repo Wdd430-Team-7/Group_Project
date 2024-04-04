@@ -1,9 +1,22 @@
+
 import ProductForm from "@/app/components/sellers/ProductForm";
 import ProductCard from "@/app/ui/product-card";
 import ArtistProducts from "@/app/ui/dashboard/products/artist-products";
+import { auth } from "../../../../auth";
 
-export default function Page() {
-    const artist_id = '1aa97dfd-5aa0-4f80-afce-8cef34880226'; // change when Auth is ready
+
+
+
+
+
+export default async function Page() {
+    const session = await auth();
+    const id = session?.user?.artistId
+    console.log(id);
+    
+    
+    console.log('product artists')
+    const artist_id = '31a83f3d-1a14-40f9-b7cc-30f9d036f572'; // change when Auth is ready
     return (
         <div className="flex flex-col gap-4">
             <h2>Products</h2>

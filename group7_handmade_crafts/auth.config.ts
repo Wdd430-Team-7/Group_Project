@@ -1,5 +1,7 @@
 import type { NextAuthConfig } from "next-auth";
 
+
+
 export const authConfig = {
     pages: {
         signIn: '/login',
@@ -20,8 +22,10 @@ export const authConfig = {
           return token
         },
         async session({ session, token, user }) {
+          session.user = {...user, artistId: token.sub}
           return session
         }
     },
     providers: [], // add providers with an empty array for now
 } satisfies NextAuthConfig
+

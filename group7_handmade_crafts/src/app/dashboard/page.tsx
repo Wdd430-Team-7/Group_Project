@@ -1,10 +1,15 @@
 import { Metadata } from "next";
+import React from 'react';
 import Image from "next/image";
 import ArtistCard from "../ui/dashboard/artist";
 import Stories from "../ui/dashboard/stories/stories";
 import Reviews from "../ui/dashboard/reviews";
 import { fetchAccountById, fetchAccountByEmail } from "../lib/online-data";
 import { auth } from "../../../auth";
+
+
+
+
 
 export const metadata: Metadata = {
   title: "Dashboard",
@@ -14,13 +19,16 @@ export default async function Page() {
   const session = await auth()
   const email = session?.user?.email
   const account = await fetchAccountByEmail(email);
+ 
   if (account) {
     const account_id = account.account_id
     const name = account.account_firstname + " " + account.account_lastname;
     const description = account.account_description;
     const image = account.account_image;  
+   
     return (
       <div>
+
         <h2 className="mb-4 text-xl md:text-2xl dark:text-amber-500 font-bold text-center">{`Welcome, ${name}!`}</h2>
         <div className="flex flex-col items-center gap-4">
           <ArtistCard image={image} name={name} description={description}/>
@@ -42,3 +50,4 @@ export default async function Page() {
     );
   }
 }
+
