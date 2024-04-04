@@ -20,7 +20,7 @@ const links = [
     icon: DocumentDuplicateIcon,
   },
   { name: 'Stories', href: '/dashboard/stories', icon: UserGroupIcon },
-  { name: 'Lourenco Login', href: '/dashboard/login', icon: PlusCircleIcon},
+  // { name: 'Lourenco Login', href: '/dashboard/login', icon: PlusCircleIcon},
 ];
 
 export default function NavLinks() {
