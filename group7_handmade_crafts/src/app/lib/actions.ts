@@ -41,6 +41,7 @@ export async function createReview(formData:FormData){
 
   
   revalidatePath(`/product/details/${id}`);
+  revalidatePath('/dashboard');
   revalidatePath(`/product/all`);
   revalidatePath(`/`);
   redirect('/product/all');
@@ -103,6 +104,8 @@ export async function createStory(formData: FormData) {
   
   revalidatePath('/dashboard/stories');
   revalidatePath('/dashboard/');
+  revalidatePath('/artist/[id]', 'page');
+  revalidatePath('/');
   redirect('/dashboard/stories');
 }
 
@@ -160,7 +163,8 @@ export async function createProduct(formData: FormData) {
   }
   
   revalidatePath('/dashboard/products');
-  revalidatePath(`/categories/[id]`, 'page')
+  revalidatePath(`/categories/[id]`, 'page');
+  revalidatePath('/');
   redirect('/dashboard/products');
 }
 
