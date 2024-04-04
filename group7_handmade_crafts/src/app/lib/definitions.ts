@@ -77,3 +77,9 @@ export type ProductForm = {
     artist_id: string,
     product_date_created: Date,
 }
+
+export type User = {
+    id: string,
+    email: string,
+    password: string
+}

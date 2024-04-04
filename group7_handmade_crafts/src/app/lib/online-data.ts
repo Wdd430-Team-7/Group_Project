@@ -268,3 +268,12 @@ export async function fetchFilteredProductsByCategory(
       throw new Error('Failed to fetch filtered products by category.');
     }
   }
+
+  export async function fetchAccountByEmail(email: string | null | undefined) {
+    try {
+        const data = await sql`SELECT * FROM handcrafted.account WHERE account_email = ${email}`;
+        return data.rows[0]
+    } catch (error) {
+        console.log("Failed to fetch user by email: " + error)
+    }
+}
