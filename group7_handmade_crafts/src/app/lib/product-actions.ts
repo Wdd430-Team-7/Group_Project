@@ -66,6 +66,7 @@ export async function updateProduct(id: string, prevState: State, formData: Form
     revalidatePath('/dashboard/products');
     revalidatePath('/dashboard/products/edit/[id]', 'page');
     revalidatePath('/product/details/[id]', 'page');
+    revalidatePath('/');
     redirect('/dashboard/products/');
 }
 
@@ -82,4 +83,6 @@ export async function deleteProduct(id: string) {
     }
 
     revalidatePath('/dashboard/products');
+    revalidatePath(`/category/[id]`, 'page');
+    revalidatePath('/');
 }
