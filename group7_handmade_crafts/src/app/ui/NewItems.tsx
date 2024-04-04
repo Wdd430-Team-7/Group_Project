@@ -5,7 +5,7 @@ import NewItemCards from "./new-item-card";
 const NewItems: React.FC = () => {
   return (
     <div className="new-items flex flex-col">
-      <h2 className="text-center text-xl font-bold">New Items</h2>
+      <h3 className="text-center text-xl font-bold">New Items</h3>
         <NewItemCards />
     </div>
   );
