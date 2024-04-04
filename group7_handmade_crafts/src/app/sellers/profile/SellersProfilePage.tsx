@@ -1,9 +1,9 @@
 // pages/sellers/profile/SellersProfilePage.tsx
 import React from "react";
 import ProductForm from "@/app/components/sellers/ProductForm";
+import { auth } from "@/../auth";
 
-const SellersProfilePage: React.FC = () => {
-  const artist_id = '1aa97dfd-5aa0-4f80-afce-8cef34880226'; // change after auth
+export default async function SellersProfilePage({ artist_id }: { artist_id: string }) {
   return (
     <div className="min-h-screen flex flex-col items-center">
       <div className="max-w-md w-full p-6 rounded-lg shadow-md">
@@ -13,5 +13,3 @@ const SellersProfilePage: React.FC = () => {
     </div>
   );
 };
-
-export default SellersProfilePage;
