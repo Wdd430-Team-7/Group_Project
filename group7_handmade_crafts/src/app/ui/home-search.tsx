@@ -50,9 +50,11 @@ export default function HomeSearch({
         onChange={(e) => setQuery(e.target.value)}
         defaultValue={searchParams.get("query")?.toString()}
       />
-      <button type="submit">
+      <button type="submit" value="submit">
+        <p className="hidden">Search</p>
         <MagnifyingGlassIcon className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
       </button>
+      <label htmlFor="category_id" className="hidden">Select</label>
       <select
         name="category_id"
         id="category_id"

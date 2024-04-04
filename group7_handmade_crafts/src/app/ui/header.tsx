@@ -30,7 +30,7 @@ export default async function Header() {
               src="/images/handcrafted_haven_logo.svg"
               width={80}
               height={80}
-              alt="logo"
+              alt="Line art of hands holding a pot with tiny details of crafting"
               className="hidden md:block bg-amber-400 rounded-lg hover:bg-amber-200"
             />
             <h1

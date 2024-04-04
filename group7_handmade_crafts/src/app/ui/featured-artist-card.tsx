@@ -20,7 +20,7 @@ export default async function FeaturedArtistCard() {
               src={image}
               width={70}
               height={70}
-              alt={`${firstName} ${lastName}`}
+              alt={`This is a rounded photograph of the artist, ${firstName} ${lastName}`}
               style={{ objectFit: "cover" }}
               className="rounded-full float-left mr-2"
             />

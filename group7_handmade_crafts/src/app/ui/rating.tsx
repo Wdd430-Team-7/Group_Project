@@ -26,7 +26,7 @@ export default async function Rating() {
         return (
           <div key={rating_id} className="m-3 p-2 bg-white">
             <a href={product_link}>
-              <p className="font-bold text-xl hover:underline">{product_name}</p>
+              <h4 className="font-bold text-xl hover:underline">{product_name}</h4>
             </a>
             <div className="flex flex-row justify-between font-bold">
               <p>{title}</p>
