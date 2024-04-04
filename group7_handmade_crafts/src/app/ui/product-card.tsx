@@ -29,12 +29,12 @@ export default async function ProductCard({ id }: { id: string }) {
             className="aspect-square border-b-[3px] rounded-tl-md rounded-tr-md border-amber-500"
           />
           <div className="mx-4">
-            <p className="text-2xl font-bold my-2">
+            <h4 className="text-2xl font-bold my-2">
               {new Intl.NumberFormat("en-US", {
                 style: "currency",
                 currency: "USD",
               }).format(product_price)}
-            </p>
+            </h4>
             {/* rating needs dynamic */}
             <ProductRating id={product_id} />
             {/* <p>⭐⭐⭐⭐⭐</p> */}
