@@ -54,7 +54,7 @@ export default function FormReviews(id:IdType) {
                 <label htmlFor="review" className="block mb-2 text-lg font-serif">Add Comment:</label>
                 <textarea id="review" name="review" placeholder="What did you like? What did you not like?.." className="w-full font-serif  p-4 text-gray-600 bg-white outline-none rounded-md"></textarea>
               </div>
-              <button type="submit" className=" px-6 py-2 mx-auto block rounded-md text-lg font-semibold text-white bg-amber-400">Send Review</button>
+              <button type="submit" className=" px-6 py-2 mx-auto block rounded-md text-lg font-semibold text-white bg-amber-400 hover:bg-green-500">Send Review</button>
             </div>
           </div>
         </div>

@@ -20,14 +20,11 @@ export default async function AddReviews({params,}:{
 
  
   return(
-    <>
-    
-    
+    <div className="text-black bg-white pt-20">
+      
+        <ProductToReview product = {productSelected}/>
+        <FormReviews id={id} />
+      
+    </div>
 
-    <div className="text-black bg-white">
-      <ProductToReview product = {productSelected}/>
-      <FormReviews id={id} />
-      </div>
-
-</>  
   )}
