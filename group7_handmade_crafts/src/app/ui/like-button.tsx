@@ -5,10 +5,12 @@ import { HeartIcon as HeartSolid } from '@heroicons/react/16/solid';
 import { useState } from 'react';
 
 export default function LikeButton() {
-    const [like, setLike] = useState(false);
+    const [Like, setLike] = useState(293),
+    [isLike, setIsLike] = useState(false)
 
-    function handleLike(like: boolean) {
-        setLike(!like);
+    function handleLike() {
+        setLike(Like + (isLike ? -1 : 1));
+        setIsLike(!isLike);
     }
     
     return (

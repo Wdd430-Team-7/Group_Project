@@ -1,4 +1,5 @@
 import { createReview } from '@/app/lib/actions';
+import {lato, patrick_hand} from '@/app/ui/fonts'
 
 
 interface IdType{
@@ -16,10 +17,10 @@ export default function FormReviews(id:IdType) {
 
     
 
-      <form action={createReview} className="shadow rounded">
+      <form action={createReview} className={`${lato.className} shadow rounded`}>
         <div className="min-h-screen md:px-20 pt-6">
           <div className=" bg-amber-200 rounded-md px-6 py-10 max-w-2xl mx-auto">
-            <h1 className="text-center text-2xl font-bold mb-10">CREATE REVIEW</h1>
+            <h1 className={`${patrick_hand.className} text-center text-2xl font-bold mb-10`}>CREATE REVIEW</h1>
             <div className="space-y-4">
 
 
@@ -40,21 +41,21 @@ export default function FormReviews(id:IdType) {
             </div>
             
               <div>
-                <label htmlFor="title" className="text-lx font-serif">Add Title:</label>
+                <label htmlFor="title" className="text-lx">Add Title:</label>
                 <input type="text" placeholder="title" id="title" name="title" className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md bg-white"/>
                 
                 <input type="hidden" name='id' value={itemId.id}/>
                 
               </div>
               <div>
-                <label htmlFor="title" className="text-lx font-serif">Add Name/Nickname:</label>
+                <label htmlFor="title" className="text-lx">Add Name/Nickname:</label>
                 <input type="text" placeholder="name/nickname" id="reviewer" name="reviewer" className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md bg-white"/>
               </div>
               <div>
-                <label htmlFor="review" className="block mb-2 text-lg font-serif">Add Comment:</label>
-                <textarea id="review" name="review" placeholder="What did you like? What did you not like?.." className="w-full font-serif  p-4 text-gray-600 bg-white outline-none rounded-md"></textarea>
+                <label htmlFor="review" className="block mb-2 text-lx">Add Comment:</label>
+                <textarea id="review" name="review" placeholder="What did you like? What did you not like?.." className="w-full p-4 text-gray-600 bg-white outline-none rounded-md"></textarea>
               </div>
-              <button type="submit" className=" px-6 py-2 mx-auto block rounded-md text-lg font-semibold text-white bg-amber-400">Send Review</button>
+              <button type="submit" className=" px-6 py-2 mx-auto block rounded-md text-lg font-semibold text-white bg-amber-400 hover:bg-green-500">Send Review</button>
             </div>
           </div>
         </div>

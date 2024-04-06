@@ -5,6 +5,7 @@ import ProductRating from "@/app/ui/product/average-rating";
 import FormReviews from "@/app/ui/product/formReview";
 import ProductToReview from "@/app/ui/product/productForReview"
 import {Product} from "@/app/lib/definitions";
+import { patrick_hand, lato } from "@/app/ui/fonts";
 
 
 
@@ -20,14 +21,11 @@ export default async function AddReviews({params,}:{
 
  
   return(
-    <>
-    
-    
+    <div className="text-black bg-white pt-20">
+      
+        <ProductToReview product = {productSelected}/>
+        <FormReviews id={id} />
+      
+    </div>
 
-    <div className="text-black bg-white">
-      <ProductToReview product = {productSelected}/>
-      <FormReviews id={id} />
-      </div>
-
-</>  
   )}

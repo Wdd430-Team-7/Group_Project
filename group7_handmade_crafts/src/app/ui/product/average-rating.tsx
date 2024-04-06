@@ -10,7 +10,7 @@ export default async function ProductRating({ id }: { id: string }) {
   if (average_rating == null) {
     return (
       <div>
-        <p className="text-base">No Ratings</p>
+        <p className="text-base text-gray-500">**No rating yet**</p>
       </div>
     );
   }
@@ -31,7 +31,7 @@ export default async function ProductRating({ id }: { id: string }) {
                         return <StarOutline key={index} className='w-5 h-5 text-amber-500' />
                     })}
                 </div>
-                <div className="text-base">{`(${num_ratings} Ratings)`}</div>
+                <div className="text-base text-start">{`(${num_ratings} Ratings)`}</div>
             </div>
           )  
     } else if (String(average_rating)[2] <= '5' && String(negative_rating)[2] > '5') {
@@ -48,7 +48,7 @@ export default async function ProductRating({ id }: { id: string }) {
                         return <StarOutline key={index} className='w-5 h-5 text-amber-500' />
                     })}
                 </div>
-                <div className="text-base">{`(${num_ratings} Ratings)`}</div>
+                <div className="text-base text-start">{`(${num_ratings} Ratings)`}</div>
             </div>
           )  
     } else {
@@ -64,7 +64,7 @@ export default async function ProductRating({ id }: { id: string }) {
                         return <StarOutline key={index} className='w-5 h-5 text-amber-500' />
                     })}
                 </div>
-                <div className="text-base">{`(${num_ratings} Ratings)`}</div>
+                <div className="text-base text-start">{`(${num_ratings} Ratings)`}</div>
             </div>
         )
     }
