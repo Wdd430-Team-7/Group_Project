@@ -6,7 +6,7 @@ export default function Reviews() {
 
     return (
         <div className=''>
-            <h3 className='text-xl font-bold'>Reviews</h3>
+            <h3 className='text-2xl font-bold'>Reviews</h3>
             {/* {reviewsData.map(review => {
                return <Rating 
                     name={review.account_firstname}

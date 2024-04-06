@@ -6,7 +6,7 @@ import FeaturedArtistCard from "./featured-artist-card";
 const FeaturedArtists: React.FC = () => {
   return (
     <div className="featured-artists">
-      <h3 className="text-xl font-bold">Featured Artists</h3>
+      <h3 className="text-2xl font-bold">Featured Artists</h3>
       <div className="flex flex-col">
         <FeaturedArtistCard />
       </div>
