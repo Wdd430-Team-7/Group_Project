@@ -16,11 +16,14 @@ export const authConfig = {
             }
             return true;
         },
-        async jwt({ token, user, session }) {
-          return token
+        async redirect({url, baseUrl}) {
+            return '/dashboard'
         },
         async session({ session, token, user }) {
-          return session
+            return session
+        },
+        async jwt({ token, user, session }) {
+          return token
         }
     },
     providers: [], // add providers with an empty array for now
