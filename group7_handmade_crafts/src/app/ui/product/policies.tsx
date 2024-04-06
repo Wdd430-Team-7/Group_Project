@@ -6,7 +6,7 @@ import { GiReturnArrow } from "react-icons/gi";
 export default function Policies(){
 
   return(
-    <div className="mx-7 my-7 pt-7 border-t-2 border-amber-300">
+    <div className="my-7 pt-7 border-t-2 border-amber-300">
             <h3 className="text-gray-900 text-xl title-font font-medium mb-1">
               shipping and return policies
             </h3>
