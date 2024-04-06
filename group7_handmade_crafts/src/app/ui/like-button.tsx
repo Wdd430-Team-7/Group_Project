@@ -14,8 +14,8 @@ export default function LikeButton() {
     }
     
     return (
-
-        <p className='mt-2' onClick={() => handleLike()}>{isLike ? <HeartSolid className='w-5 h-5 text-red-500' /> : <HeartOutline className='w-5 h-5 text-red-500' />}{Like}</p>
-
+        
+        <button className='mt-2 text-gray-500' onClick={() => handleLike()}>{isLike ? <HeartSolid className='w-5 h-5 text-red-500' /> : <HeartOutline className='w-5 h-5 text-red-500' />}{Like}</button>
+        
     )
 }

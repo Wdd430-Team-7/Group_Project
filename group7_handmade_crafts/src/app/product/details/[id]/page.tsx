@@ -63,7 +63,7 @@ export default async function ProductDetail({params}:{
               <p className="leading-relaxed">{productSelected.product_description}</p>     
               <div className="flex">
                 <span className="title-font font-medium text-2xl text-gray-900">${productSelected.product_price}</span>
-                <Link href="/product/details/checkout" className="flex ml-auto text-white bg-amber-400 border-0 py-2 px-6 focus:outline-none hover:bg-green-500 rounded">Add to Cart</Link>
+                <Link href="/product/details/checkout" className="flex ml-auto text-black bg-amber-400 border-0 py-2 px-6 focus:outline-none hover:bg-green-500 rounded">Add to Cart</Link>
                 
               </div>
               <Policies/>
@@ -78,7 +78,7 @@ export default async function ProductDetail({params}:{
                     <h2 className={`${patrick_hand.className} text-center text-gray-900 text-3xl title-font font-medium mb-1`}>write a review about this product</h2>
                     
                     <p className="text-center">Share your opinion with others</p>
-                    <Link href={`/product/details/${productSelected.product_id}/reviews/${productSelected.artist_id}`} className="mr-auto ml-auto text-white bg-gray-400 border-0 py-2 px-6 focus:outline-none hover:bg-amber-400 rounded">write your opinion</Link>
+                    <Link href={`/product/details/${productSelected.product_id}/reviews/${productSelected.artist_id}`} className="mr-auto ml-auto text-black bg-gray-400 border-0 py-2 px-6 focus:outline-none hover:bg-amber-400 rounded">write your opinion</Link>
                     
         </div>
         
