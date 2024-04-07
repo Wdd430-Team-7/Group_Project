@@ -5,7 +5,7 @@ export default function Reviews() {
 
 
     return (
-        <div className='text-black'>
+        <div className=''>
             <h3 className='text-2xl font-bold'>Reviews</h3>
             {/* {reviewsData.map(review => {
                return <Rating 

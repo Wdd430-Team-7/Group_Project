@@ -10,7 +10,7 @@ export default async function ProductRating({ id }: { id: string }) {
   if (average_rating == null) {
     return (
       <div>
-        <p className="text-base text-gray-500">**No rating yet**</p>
+        <p className="text-base">**No rating yet**</p>
       </div>
     );
   }
