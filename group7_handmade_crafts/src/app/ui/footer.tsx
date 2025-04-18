@@ -1,6 +1,15 @@
+
+import Link from "next/link";
+import { fetchCategories } from "../lib/online-data";
+import FooterCategory from "./footer-category";
+import { FaSquareFacebook } from "react-icons/fa6";
+import { FaInstagram, FaYoutube } from "react-icons/fa";
+
 import Image from "next/image";
 
-export default function Footer() {
+export default async function Footer() {
+    const categoriesList = await fetchCategories();
+
     return (
         <footer className="flex flex-col md:flex-row flex-wrap md:justify-between items-center bg-amber-400 p-4">
             <p className="text-black text-center">COPYRIGHT 2024 - WDD430 - TEAM SEVEN</p>
